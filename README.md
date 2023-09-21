@@ -10,7 +10,7 @@
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/HelloWorld)
  ![image](https://media.discordapp.net/attachments/1019500728953356334/1154420743048810527/image.png)
 
- ### Bài 2 - About me (Giao diện)
+ ### Bài 2 - About Me (Giao diện)
   ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/AboutMe)
  ![image](https://media.discordapp.net/attachments/1019500728953356334/1154420623112667167/image.png)
 
