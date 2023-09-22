@@ -14,6 +14,6 @@
   ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/AboutMe)
  ![image](https://media.discordapp.net/attachments/1019500728953356334/1154420623112667167/image.png)
 
- ### Bài 3 - BMI Caculator (Giao diện)
+ ### Bài 3 - BMI Calculator (Giao diện)
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/BMICalculator)
  ![image](https://media.discordapp.net/attachments/1019500728953356334/1154420678141935616/image.png)
