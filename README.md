@@ -25,3 +25,7 @@
  ### Bài 5 - Ex No 1 (Giao diện)
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/Ex_No_1)
  ![image](https://media.discordapp.net/attachments/1019500728953356334/1154970488880234606/image.png)
+
+  ### Bài 6 - Ex No 8 (Giao diện)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/Ex_No_8)
+ ![image](https://media.discordapp.net/attachments/1019500728953356334/1155450386610663464/image.png)
