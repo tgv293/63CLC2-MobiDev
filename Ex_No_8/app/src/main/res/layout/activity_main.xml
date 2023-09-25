@@ -27,13 +27,16 @@
         android:layout_weight="0.10"
         android:orientation="horizontal">
 
-        <View
+        <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_margin="4dp"
             android:layout_weight="0.75"
-            android:background="@color/lightgreen" />
+            android:background="@color/lightgreen"
+            android:text="View"
+            android:textSize="22sp"
+            android:gravity="center"/>
 
         <Button
             android:layout_width="0dp"
