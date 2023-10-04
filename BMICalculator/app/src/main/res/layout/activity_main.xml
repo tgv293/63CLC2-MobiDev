@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,9 +11,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
-            android:gravity="center_vertical"
-            android:padding="16dp">
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/header"
@@ -22,7 +23,8 @@
                 android:gravity="center"
                 android:text="BMI CALCULATOR"
                 android:textColor="#000000"
-                android:textSize="28sp" />
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/height_label"
@@ -33,10 +35,11 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/height"
-                android:layout_width="match_parent"
+                android:id="@+id/edtHeight"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:gravity="center"
                 android:inputType="numberDecimal"
                 android:textColor="#000000"
                 android:textSize="18sp" />
@@ -51,22 +54,23 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/weight"
-                android:layout_width="match_parent"
+                android:id="@+id/edtWeight"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:gravity="center"
                 android:inputType="numberDecimal"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/calculate"
-                android:layout_width="match_parent"
+                android:id="@+id/btnCalculate"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/blue"
                 android:padding="10dp"
-                android:text="Calculate"
+                android:text="Calculate BMI"
                 android:textColor="#FFFFFF"
                 android:textSize="22sp" />
 
@@ -80,29 +84,27 @@
                 android:text="YOUR RESULT"
                 android:textColor="@color/gray"
                 android:textSize="22sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/result_number"
-                android:layout_width="match_parent"
+                android:id="@+id/tvResult"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="23.5"
                 android:textColor="@color/gray"
                 android:textSize="22sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/result_status"
-                android:layout_width="match_parent"
+                android:id="@+id/tvRStatus"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Normal"
                 android:textColor="@color/gray"
                 android:textSize="22sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
