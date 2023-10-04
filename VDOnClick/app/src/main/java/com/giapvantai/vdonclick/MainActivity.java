@@ -9,16 +9,20 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText edtName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        edtName = findViewById(R.id.edtName);
+        btn
     }
 
     // Viết hàm xử lý sự kiện ở đây
     public void XuLyNoiHello(View v) {
         //Bước 1: Tìm điều khiển
-        EditText edtName = (EditText) findViewById(R.id.edtName);
         //Bước 2: Xuất theo yêu cầu
         String strThongBao = "Xin chào, tôi là " + edtName.getText().toString();
         Toast.makeText(this, strThongBao, Toast.LENGTH_LONG).show();
