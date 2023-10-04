@@ -34,6 +34,11 @@
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/Ex_No_9)
  ![image](https://media.discordapp.net/attachments/1019500728953356334/1155522025671110705/image.png)
 
-  ### Bài 8 - Vi du OnClick (Giao diện)
+ ### Bài 8 - Vi du OnClick (Giao diện)
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/VDOnClick)
  ![image](https://media.discordapp.net/attachments/1019500728953356334/1159031695316623400/image.png)
+
+ ### Bài 9 - SimpleMath (Giao diện)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/SimpleMath)
+ ![image](https://media.discordapp.net/attachments/1019500728953356334/1159134145579057243/image.png)
+ 
