@@ -10,14 +10,21 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtName;
+    Button buttonSayHi, buttonXinChao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findControls();
+        //...
+    }
+
+    void findControls() {
         edtName = findViewById(R.id.edtName);
-        btn
+        buttonSayHi = findViewById(R.id.btnHello);
+        buttonXinChao = findViewById(R.id.btnXinChao);
     }
 
     // Viết hàm xử lý sự kiện ở đây
