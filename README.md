@@ -41,4 +41,12 @@
  ### Bài 9 - SimpleMath (Giao diện)
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/SimpleMath)
  ![image](https://media.discordapp.net/attachments/1019500728953356334/1159134145579057243/image.png)
+
+ ### Ví dụ AutoCompleteTextView (Giao diện)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/AutoCompleteTextView)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1163817112150757376/image.png)
+
+ ### Ví dụ ListView (Giao diện)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/ListViewExample)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1163816746529079368/image.png)
  
