@@ -49,4 +49,13 @@
  ### Ví dụ ListView (Giao diện)
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/ListViewExample)
  ![image](https://media.discordapp.net/attachments/1163815783118422048/1163816746529079368/image.png)
- 
+
+ ### Ví dụ CustomizedListView (Giao diện)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/CustomizedListView)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1165659539954217040/image.png)
+
+ ### Ví dụ Intent (Giao diện)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/IntentExample)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1165652702487924866/image.png)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1165652702810869842/image.png)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1165656492150624306/image.png)
