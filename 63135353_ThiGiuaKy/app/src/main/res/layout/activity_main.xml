@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4370BF"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <Button
+            android:id="@+id/btnGoToBai1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#E9E900"
+            android:onClick="goToBai1Activity"
+            android:text="Bài 1"
+            android:textColor="#3E9291"
+            android:textSize="20sp"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/btnGoToBai2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#E9E900"
+            android:onClick="goToBai2Activity"
+            android:text="Bài 2"
+            android:textColor="#3E9291"
+            android:textSize="20sp"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/btnGoToBai3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#E9E900"
+            android:onClick="goToBai3Activity"
+            android:text="Bài 3"
+            android:textColor="#3E9291"
+            android:textSize="20sp"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/btnGoToBai4"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:backgroundTint="#E9E900"
+            android:onClick="goToBai4Activity"
+            android:text="Bài 4"
+            android:textColor="#3E9291"
+            android:textSize="20sp"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
