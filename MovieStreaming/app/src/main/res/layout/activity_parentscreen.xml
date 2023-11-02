@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/netflicgradientback"
+    tools:context=".Parentscreen">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/parentTB"
+        style="@style/ToolbarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:contentInsetStart="0dp"
+        android:elevation="3dp"
+        android:paddingStart="0dp"
+        app:titleTextColor="@color/black">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:src="@drawable/nlogog" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/downloadsTB"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:contentInsetStart="0dp"
+        android:elevation="3dp"
+        android:paddingStart="0dp"
+        android:visibility="gone"
+        app:title="Downloads"
+        app:titleTextColor="#CDCACA" />
+    >
+
+    <FrameLayout
+        android:id="@+id/frameContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation"
+        android:layout_below="@+id/parentTB" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</RelativeLayout>

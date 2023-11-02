@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/privacyMenu"
+        android:title="QUYỀN RIÊNG TƯ"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/signinMenu"
+        android:title="ĐĂNG NHẬP"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/faqsMenu"
+        android:title="HỎI ĐÁP" />
+
+    <item
+        android:id="@+id/helpMenu"
+        android:title="TRỢ GIÚP" />
+
+</menu>

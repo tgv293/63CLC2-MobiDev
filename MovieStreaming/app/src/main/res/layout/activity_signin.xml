@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".Signin">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbSignin"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_arrow_back_24" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/netflixfulltext" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tbSignin"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/emailSec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/sigininback"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/emailText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Email hoặc số điện thoại"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/etowemail"
+                style="@style/CustomEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/emailText"
+                android:hint="Email hoặc số điện thoại"
+                android:inputType="textEmailAddress|phone"
+                android:padding="5dp"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/passwordSec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/sigininback"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/passText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Mật khẩu"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/signinPass"
+                style="@style/CustomEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/passText"
+                android:hint="Mật khẩu"
+                android:inputType="textPassword"
+                android:padding="5dp"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signinBtn"
+            style="@style/customButtonGetStartedAndSignin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="4dp"
+            android:padding="15dp"
+            android:text="Đăng nhập"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Bạn cần trợ giúp?"
+            android:textColor="#CDC9C9"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Bạn mới sử dụng Netflix? Đăng ký ngay."
+            android:textColor="#E8E3E3"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

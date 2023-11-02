@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/EpisodesMenu"
+        android:title="EPISODES"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/MoreLikeThisMenu"
+        android:title="MORE LIKE THIS"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/TrailersMenu"
+        android:title="TRAILERS &amp; MORE"
+        app:showAsAction="ifRoom" />
+
+</menu>
