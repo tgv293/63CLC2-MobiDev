@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="3"
+    android:rowCount="4">
+
+    <Button
+        android:id="@+id/key_1"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="1\n" />
+
+    <Button
+        android:id="@+id/key_2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="2\nabc" />
+
+    <Button
+        android:id="@+id/key_3"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="3\ndef" />
+
+    <Button
+        android:id="@+id/key_4"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="4\nghi" />
+
+    <Button
+        android:id="@+id/key_5"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="5\njkl" />
+
+    <Button
+        android:id="@+id/key_6"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="6\nmno" />
+
+    <Button
+        android:id="@+id/key_7"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="7\npqrs" />
+
+    <Button
+        android:id="@+id/key_8"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="8\ntuv" />
+
+    <Button
+        android:id="@+id/key_9"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="9\nwxyz" />
+
+    <Button
+        android:id="@+id/key_star"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="*" />
+
+    <Button
+        android:id="@+id/key_0"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="0" />
+
+    <Button
+        android:id="@+id/key_hash"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:text="#" />
+
+</GridLayout>
+
