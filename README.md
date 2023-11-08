@@ -63,3 +63,9 @@
  ### Ví dụ NotepadApp dùng Fragments (Giao diện)
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/NotepadAppWithCustomKeypad)
  ![image](https://media.discordapp.net/attachments/1163815783118422048/1171102514750439424/image.png)
+
+ ### App Việc cần làm (Giao diện)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/ViecCanLam)
+ ![image](### Ví dụ NotepadApp dùng Fragments (Giao diện)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/NotepadAppWithCustomKeypad)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1171102514750439424/image.png)
