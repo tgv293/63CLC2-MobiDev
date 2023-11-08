@@ -61,5 +61,5 @@
  ![image](https://media.discordapp.net/attachments/1163815783118422048/1165656492150624306/image.png)
 
  ### Ví dụ NotepadApp dùng Fragments (Giao diện)
- ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/CustomizedListView)
- ![image](https://media.discordapp.net/attachments/1163815783118422048/1165659539954217040/image.png)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/NotepadAppWithCustomKeypad)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1171102514750439424/image.png)
