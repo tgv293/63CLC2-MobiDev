@@ -1,4 +1,4 @@
-# 63CNTT-Mobile-Dev: LẬP TRÌNH ỨNG DỤNG MOBILE
+![image](https://github.com/tgv293/63CLC2-MobiDev/assets/102977775/2812dbfb-d496-46af-915e-9e266586f524)# 63CNTT-Mobile-Dev: LẬP TRÌNH ỨNG DỤNG MOBILE
 > Sinh viên: Giáp Văn Tài 63135353 63.CNTT-CLC2
  ## Install:
  - Android Studio
@@ -66,6 +66,4 @@
 
  ### App Việc cần làm (Giao diện)
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/ViecCanLam)
- ![image](### Ví dụ NotepadApp dùng Fragments (Giao diện)
- ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/NotepadAppWithCustomKeypad)
- ![image](https://media.discordapp.net/attachments/1163815783118422048/1171102514750439424/image.png)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1171828571166228562/image.png)
