@@ -19,32 +19,6 @@ public class TaskRVadapter extends RecyclerView.Adapter {
         this.dataSource = dataSource;
     }
 
-    //
-    public final class TaskItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tvTenVCL;
-        TextView tvNgayHetHan;
-
-        public int position;
-
-        public TaskItemViewHolder(@NonNull View itemView) {
-            super(itemView);
-            itemView.setOnClickListener(this);
-            tvTenVCL = itemView.findViewById(R.id.textViewTenVCL);
-            tvNgayHetHan = itemView.findViewById(R.id.textViewThoiGian);
-        }
-
-        @Override
-        public void onClick(View v) {
-            // lấy vị trí
-            int vtClicked = getAdapterPosition();
-            // lục ở nguồn dữ liệu
-            TASKS taskClicked = dataSource.get(vtClicked);
-            // xử lý, ví dụ ở đây ta Toast
-            Toast.makeText(v.getContext(), "Bạn vừa chọn việc " + taskClicked.getName(), Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -66,5 +40,29 @@ public class TaskRVadapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return dataSource.size();
+    }
+
+    //
+    public final class TaskItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public int position;
+        TextView tvTenVCL;
+        TextView tvNgayHetHan;
+
+        public TaskItemViewHolder(@NonNull View itemView) {
+            super(itemView);
+            itemView.setOnClickListener(this);
+            tvTenVCL = itemView.findViewById(R.id.textViewTenVCL);
+            tvNgayHetHan = itemView.findViewById(R.id.textViewThoiGian);
+        }
+
+        @Override
+        public void onClick(View v) {
+            // lấy vị trí
+            int vtClicked = getAdapterPosition();
+            // lục ở nguồn dữ liệu
+            TASKS taskClicked = dataSource.get(vtClicked);
+            // xử lý, ví dụ ở đây ta Toast
+            Toast.makeText(v.getContext(), "Bạn vừa chọn việc " + taskClicked.getName(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

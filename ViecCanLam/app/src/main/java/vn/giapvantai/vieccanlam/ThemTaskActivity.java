@@ -25,22 +25,22 @@ public class ThemTaskActivity extends AppCompatActivity {
             EditText editTextDate = findViewById(R.id.editTextDate);
             EditText editTextPrio = findViewById(R.id.editTextPrio);
 
-            String tenCV = editTextName.getText().toString() ;
-            String mess= editTextMess.getText().toString() ;
-            String dat = editTextDate.getText().toString() ;
-            String pri = editTextPrio.getText().toString() ;
+            String tenCV = editTextName.getText().toString();
+            String mess = editTextMess.getText().toString();
+            String dat = editTextDate.getText().toString();
+            String pri = editTextPrio.getText().toString();
             // Gói vào đối tượng TASK
-            TASKS task = new TASKS(tenCV,dat,mess,pri);
+            TASKS task = new TASKS(tenCV, dat, mess, pri);
             // Kết nói DB, và thêm
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference databaseReference = database.getReference("TASKS");
             String key = databaseReference.push().getKey();
 
             HashMap<String, Object> item = new HashMap<>();
-            item.put(key,task.toFirebaseObject() );
+            item.put(key, task.toFirebaseObject());
 
             databaseReference.updateChildren(item, (error, ref) -> {
-                if (error==null ) finish();
+                if (error == null) finish();
             });
 
 

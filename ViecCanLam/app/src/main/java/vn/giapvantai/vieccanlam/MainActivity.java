@@ -22,6 +22,24 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     List<TASKS> lstVCL;
     TaskRVadapter adapter;
+    ValueEventListener ngheFB = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot snapshot) {
+            lstVCL.clear();
+            // Lấy dữ liệu từ biến snapshot, đưa vào một biến danh sách để xử lý
+            for (DataSnapshot obj : snapshot.getChildren()) {
+                TASKS task = obj.getValue(TASKS.class);
+                lstVCL.add(task);
+                //Log.w("VCLapp", "Tên việc cần làm : "+ task.getName()  );
+            }
+            adapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.rcvVCL);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration( new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         adapter = new TaskRVadapter(lstVCL);
         recyclerView.setAdapter(adapter);
@@ -44,28 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
         FloatingActionButton floatingActionButton = findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(v -> {
-            Intent  intent = new Intent(MainActivity.this, ThemTaskActivity.class);
+            Intent intent = new Intent(MainActivity.this, ThemTaskActivity.class);
             startActivity(intent);
         });
 
-
     }
-    //
-    ValueEventListener ngheFB= new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot snapshot) {
-            lstVCL.clear();
-            // Lấy dữ liệu từ biến snapshot, đưa vào một biến danh sách để xử lý
-            for (DataSnapshot obj: snapshot.getChildren()  ) {
-                TASKS task  =  obj.getValue(TASKS.class);
-                lstVCL.add(task);
-//                Log.w("VCLapp", "Tên việc cần làm : "+ task.getName()  );
-            }
-            adapter.notifyDataSetChanged();
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError error) {
-        }
-    };
 }
