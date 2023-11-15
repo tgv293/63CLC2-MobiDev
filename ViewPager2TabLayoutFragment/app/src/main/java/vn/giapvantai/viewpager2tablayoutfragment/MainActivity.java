@@ -3,6 +3,10 @@ package vn.giapvantai.viewpager2tablayoutfragment;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -29,6 +33,23 @@ public class MainActivity extends AppCompatActivity {
         dsQuocGia.add(qg1);
         dsQuocGia.add(qg2);
         dsQuocGia.add(qg3);
+
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.myrecycleView);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(llm);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL));
+        DividerItemDecoration itemDecorator = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+
+        itemDecorator.setDrawable(ContextCompat.getDrawable(this, R.drawable.divider));
+
+        recyclerView.addItemDecoration(itemDecorator);
+        QuocGiaRVAdapter quocGiaRVAdapter = new QuocGiaRVAdapter(dsQuocGia);
+        recyclerView.setAdapter(quocGiaRVAdapter);
+        quocGiaRVAdapter.notifyDataSetChanged();
 
         viewPager2 = findViewById(R.id.viewPagerQG);
         quocGiaPagerAdapter = new QuocGiaPagerAdapter(this, dsQuocGia);
