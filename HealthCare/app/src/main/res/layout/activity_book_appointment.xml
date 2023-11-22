@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".BookAppointmentActivity">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="0.4"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <View-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:background="@drawable/logo" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/appName"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:text="@string/app_name2"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="34sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_weight="0.6"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/input_ba_fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:background="@drawable/input_bg"
+            android:drawableStart="@drawable/ic_baseline_person_24"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/FullName"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/input_ba_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/input_bg"
+            android:drawableStart="@drawable/ic_baseline_security_24"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/address"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/input_ba_contactnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_bg"
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/contactnumber"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/input_ba_fees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_bg"
+            android:drawableStart="@drawable/ic_baseline_security_24"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/fees"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:textColor="@color/yellowLight"/>
+
+        <Button
+            android:id="@+id/btn_ba_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22/11/2023"/>
+
+        <Button
+            android:id="@+id/btn_bookappointment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_bg"
+            android:text="@string/register"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_ba_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_bg"
+            android:text="@string/back_normal"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

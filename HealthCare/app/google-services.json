@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "801050037703",
+    "firebase_url": "https://healthcare-9018f-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "healthcare-9018f",
+    "storage_bucket": "healthcare-9018f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801050037703:android:e4a9d229a7dbdcbed21de2",
+        "android_client_info": {
+          "package_name": "vn.giapvantai.healthcare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrfIob2ynfqaW1w4rjoC_RUUSX1EKyRVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
