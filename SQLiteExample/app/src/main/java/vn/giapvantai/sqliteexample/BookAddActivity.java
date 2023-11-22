@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BookAddActivity extends AppCompatActivity {
 
-    private EditText etMaSach, etTenSach, etSoTrang, etGia, etMoTa;
+    private EditText edMaSach, edTenSach, edSoTrang, edGia, edMoTa;
     private Button buttonAdd, buttonCancel;
 
     @Override
@@ -19,19 +19,19 @@ public class BookAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_add);
 
-        etMaSach = findViewById(R.id.edMaSach);
-        etTenSach = findViewById(R.id.edTenSach);
-        etSoTrang = findViewById(R.id.edSoTrang);
-        etGia = findViewById(R.id.edGia);
-        etMoTa = findViewById(R.id.edMoTa);
+        edMaSach = findViewById(R.id.edMaSach);
+        edTenSach = findViewById(R.id.edTenSach);
+        edSoTrang = findViewById(R.id.edSoTrang);
+        edGia = findViewById(R.id.edGia);
+        edMoTa = findViewById(R.id.edMoTa);
         buttonAdd = findViewById(R.id.buttonAdd);
         buttonCancel = findViewById(R.id.buttonCancel);
 
         buttonAdd.setOnClickListener(view -> {
-            String tenSach = etTenSach.getText().toString();
-            String soTrangStr = etSoTrang.getText().toString();
-            String giaStr = etGia.getText().toString();
-            String moTa = etMoTa.getText().toString();
+            String tenSach = edTenSach.getText().toString();
+            String soTrangStr = edSoTrang.getText().toString();
+            String giaStr = edGia.getText().toString();
+            String moTa = edMoTa.getText().toString();
 
             if (!tenSach.isEmpty() && !soTrangStr.isEmpty() && !giaStr.isEmpty()) {
                 try {
@@ -64,12 +64,12 @@ public class BookAddActivity extends AppCompatActivity {
     }
 
     private void updateBookCode() {
-        String currentBookCodeStr = etMaSach.getText().toString();
+        String currentBookCodeStr = edMaSach.getText().toString();
         if (!currentBookCodeStr.isEmpty()) {
             try {
                 int currentBookCode = Integer.parseInt(currentBookCodeStr);
                 currentBookCode++;
-                etMaSach.setText(String.valueOf(currentBookCode));
+                edMaSach.setText(String.valueOf(currentBookCode));
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
