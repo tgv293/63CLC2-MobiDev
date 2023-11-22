@@ -67,3 +67,7 @@
  ### App Việc cần làm (Giao diện)
  ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/ViecCanLam)
  ![image](https://media.discordapp.net/attachments/1163815783118422048/1171828571166228562/image.png)
+
+ ### App Quản lý sách (Giao diện)
+ ### [Chi tiết bài tập](https://github.com/tgv293/63CLC2-MobiDev/tree/main/SQLiteExample)
+ ![image](https://media.discordapp.net/attachments/1163815783118422048/1176828405442936852/image.png)
