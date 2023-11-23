@@ -40,27 +40,16 @@
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/home" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LabTest"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorRed"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+                android:text="@string/LabTest"
+                android:textAlignment="center"
+                android:textColor="@color/colorRed"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/home" />
 
         </androidx.cardview.widget.CardView>
 
@@ -78,27 +67,17 @@
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:text="@string/BuyMedicine"
+                android:textAlignment="center"
+                android:textColor="@color/colorRed"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/language" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/language" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/BuyMedicine"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorRed"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -116,27 +95,16 @@
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/chat" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/FindDoctors"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorRed"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+                android:text="@string/FindDoctors"
+                android:textAlignment="center"
+                android:textColor="@color/colorRed"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/chat" />
 
         </androidx.cardview.widget.CardView>
 
@@ -154,27 +122,16 @@
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/calendar" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/HealthArticles"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorRed"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+                android:text="@string/HealthArticles"
+                android:textAlignment="center"
+                android:textColor="@color/colorRed"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/calendar" />
 
         </androidx.cardview.widget.CardView>
 
@@ -192,27 +149,16 @@
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/widgets" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/OrderDetail"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorRed"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+                android:text="@string/OrderDetail"
+                android:textAlignment="center"
+                android:textColor="@color/colorRed"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/widgets" />
 
         </androidx.cardview.widget.CardView>
 
@@ -230,27 +176,16 @@
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/info" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LogOut"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorRed"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+                android:text="@string/LogOut"
+                android:textAlignment="center"
+                android:textColor="@color/colorRed"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/info" />
 
         </androidx.cardview.widget.CardView>
 

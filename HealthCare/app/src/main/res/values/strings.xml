@@ -40,4 +40,9 @@
     <string name="contactnumber">Số điện thoại liên lạc</string>
     <string name="fees">Phí</string>
     <string name="back_normal">Quay về</string>
+    <string name="SelectDate">Chọn ngày</string>
+    <string name="SelectTime">Chọn thời gian</string>
+    <string name="BookAppointment">Đặt lịch</string>
+    <string name="gotocart">TỚI GIỎ HÀNG</string>
+    <string name="addtocart">XÁC NHẬN</string>
 </resources>

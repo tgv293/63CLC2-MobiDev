@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".BookAppointmentActivity">
+    tools:context=".CartLabActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvBAName"
+            android:id="@+id/tvLTName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name2"
@@ -25,103 +25,62 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvBATitle"
+            android:id="@+id/tvLDTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Default Text"
+            android:text="Địa điểm giao hàng: Nha Trang"
             android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCartPackageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Các gói dịch vụ"
+            android:textColor="@color/yellowLight"
             android:textSize="20sp"
             android:textStyle="bold" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_weight="0.8"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_weight="0.7">
 
-        <TextView
-            android:id="@+id/input_ba_fullname"
+        <EditText
+            android:id="@+id/editTextLDMultiLine"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="username"
-            android:background="@drawable/input_bg"
-            android:drawablePadding="10dp"
-            android:ems="10"
-            android:hint="@string/FullName"
-            android:minHeight="48dp"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="10dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="18sp"
-            app:drawableStartCompat="@drawable/ic_baseline_person_24" />
-
-        <TextView
-            android:id="@+id/input_ba_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="20dp"
-            android:autofillHints="emailAddress"
-            android:background="@drawable/input_bg"
-            android:drawablePadding="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:ems="10"
-            android:hint="@string/address"
-            android:minHeight="48dp"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="10dp"
+            android:gravity="center|start|top"
+            android:inputType="textMultiLine"
+            android:padding="10dp"
+            android:hint="Detail"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="18sp"
-            app:drawableStartCompat="@drawable/ic_baseline_security_24" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvLDTotalCost"
+            app:layout_constraintVertical_weight="9" />
 
         <TextView
-            android:id="@+id/input_ba_contactnumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autofillHints="phone"
-            android:background="@drawable/input_bg"
-            android:drawablePadding="10dp"
-            android:ems="10"
-            android:hint="@string/contactnumber"
-            android:minHeight="48dp"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="10dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="18sp"
-            app:drawableStartCompat="@drawable/ic_baseline_email_24" />
-
-        <TextView
-            android:id="@+id/input_ba_fees"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/input_bg"
-            android:drawablePadding="10dp"
-            android:ems="10"
-            android:hint="@string/fees"
-            android:minHeight="48dp"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="10dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="18sp"
-            app:drawableStartCompat="@drawable/ic_baseline_security_24" />
+            android:id="@+id/tvLDTotalCost"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="Total Cost"
+            android:gravity="center"
+            android:textColor="@color/yellowLight"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/editTextLDMultiLine"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_weight="1" />
 
         <LinearLayout
             android:id="@+id/datetimeLayout"
@@ -193,24 +152,44 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_ba_book"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/btn_bg"
-            android:text="@string/BookAppointment"
-            android:textSize="18sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btnsLD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center">
 
         <Button
-            android:id="@+id/btn_ba_back"
-            android:layout_width="match_parent"
+            android:id="@+id/btn_LDATCart"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/btn_bg"
-            android:text="@string/back_normal"
-            android:textSize="18sp" />
+            android:text="@string/addtocart"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_LDBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/btn_LDBack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg"
+            android:text="@string/back"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_LDATCart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
