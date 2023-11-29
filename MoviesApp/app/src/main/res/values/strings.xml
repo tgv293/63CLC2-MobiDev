@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MoviesApp</string>
+    <string name="privacy">QUYỀN RIÊNG TƯ</string>
+    <string name="sign_in">ĐĂNG NHẬP</string>
+    <string name="faqs">HỎI ĐÁP</string>
+    <string name="help">TRỢ GIÚP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="CREATE_ACCOUNT">TẠO TÀI KHOẢN</string>
+    <string name="CREATE_ACCOUNT_GOOGLE">Đăng nhập với Google</string>
+    <string name="default_web_client_id">1015360649072-aav1gp78elent7ge8v60vf9m244ps7l4.apps.googleusercontent.com</string>
+    <string name="registration_successful">Đăng ký thành công.</string>
+    <string name="registration_failed">Đăng ký thất bại.</string>
+    <string name="google_signin_failed">Đăng ký bằng Google thất bại.</string>
+    <string name="invalid_email_error">Định dạng email không hợp lệ.</string>
+    <string name="short_password_error">Mật khẩu dài tối thiểu 6 ký tự.</string>
+    <string name="get_started">BẮT ĐẦU</string>
+    <string name="empty_email_error">Vui lòng nhập email.</string>
+    <string name="empty_password_error">Vui lòng nhập mật khẩu.</string>
+    <string name="login_success">Đăng nhập thành công.</string>
+    <string name="login_failed">Đăng nhập thất bại.</string>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "836355691985",
+    "project_id": "chattingapp-28380",
+    "storage_bucket": "chattingapp-28380.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836355691985:android:46d2aadede216469f1fcf0",
+        "android_client_info": {
+          "package_name": "vn.giapvantai.chattingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNLsVeiug5camSpNNberzaZ9TepV6SHPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

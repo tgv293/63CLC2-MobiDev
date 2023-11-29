@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ChattingApp</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="email_normal">Email</string>
+    <string name="password_normal">Password</string>
+    <string name="enter_registered_email">Please enter your registered email.</string>
+    <string name="invalid_email_error">Type a valid email here.</string>
+    <string name="password_reset_email_sent">Password reset email sent!</string>
+    <string name="error_sending_password_reset_email">Error in sending password reset email.</string>
+</resources>

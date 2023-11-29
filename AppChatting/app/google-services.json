@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "735474576056",
+    "firebase_url": "https://chatsapp-66fe1-default-rtdb.firebaseio.com",
+    "project_id": "chatsapp-66fe1",
+    "storage_bucket": "chatsapp-66fe1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735474576056:android:96c2eb15203eff8fcda24d",
+        "android_client_info": {
+          "package_name": "vn.giapvantai.appchatting"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOzR8-3x4zuf2TPHhUV0nMNc6F_70g6hY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735474576056:android:c83502869e16e982cda24d",
+        "android_client_info": {
+          "package_name": "vn.giapvantai.chatsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOzR8-3x4zuf2TPHhUV0nMNc6F_70g6hY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
