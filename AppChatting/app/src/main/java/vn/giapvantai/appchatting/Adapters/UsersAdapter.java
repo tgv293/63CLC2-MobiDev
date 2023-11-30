@@ -1,5 +1,6 @@
 package vn.giapvantai.appchatting.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,7 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-//import vn.giapvantai.appchatting.Activities.ChatActivity;
+import vn.giapvantai.appchatting.Activities.ChatActivity;
 import vn.giapvantai.appchatting.R;
 import vn.giapvantai.appchatting.Models.User;
 import vn.giapvantai.appchatting.databinding.RowConversationBinding;
@@ -23,6 +24,7 @@ import vn.giapvantai.appchatting.databinding.RowConversationBinding;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHolder> {
 
@@ -54,14 +56,22 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
                 .child("chats")
                 .child(senderRoom)
                 .addValueEventListener(new ValueEventListener() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()) {
                             String lastMsg = snapshot.child("lastMsg").getValue(String.class);
-                            long time = snapshot.child("lastMsgTime").getValue(Long.class);
-                            SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm a");
-                            holder.binding.msgTime.setText(dateFormat.format(new Date(time)));
-                            holder.binding.lastMsg.setText(lastMsg);
+                            Long timeLong = snapshot.child("lastMsgTime").getValue(Long.class);
+                            if (timeLong != null) {
+                                long time = timeLong;
+                                SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm a", new Locale("vi", "VN"));
+                                holder.binding.msgTime.setText(dateFormat.format(new Date(time)));
+                                holder.binding.lastMsg.setText(lastMsg);
+                            } else {
+                                // Handle the case where time is null
+                                holder.binding.msgTime.setText("Thời gian không xác định");
+                                holder.binding.lastMsg.setText(lastMsg);
+                            }
                         } else {
                             holder.binding.lastMsg.setText("Tap to chat");
                         }
@@ -80,16 +90,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
                 .placeholder(R.drawable.avatar)
                 .into(holder.binding.profile);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent intent = new Intent(context, ChatActivity.class);
-//                intent.putExtra("name", user.getName());
-//                intent.putExtra("image", user.getProfileImage());
-//                intent.putExtra("uid", user.getUid());
-//                intent.putExtra("token", user.getToken());
-//                context.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ChatActivity.class);
+            intent.putExtra("name", user.getName());
+            intent.putExtra("image", user.getProfileImage());
+            intent.putExtra("uid", user.getUid());
+            intent.putExtra("token", user.getToken());
+            context.startActivity(intent);
         });
     }
 

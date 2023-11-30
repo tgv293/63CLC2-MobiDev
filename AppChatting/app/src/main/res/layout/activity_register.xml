@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f9f9f9"
+    android:background="@color/green_4"
     tools:context=".Activities.RegisterActivity">
 
     <ImageView
@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mobile_auth" />
+        app:srcCompat="@drawable/authentication" />
 
     <TextView
         android:id="@+id/registerLbl"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Sign up"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
@@ -37,6 +37,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="Sign up to continue."
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/registerLbl"
         app:layout_constraintStart_toStartOf="@+id/registerLbl"
@@ -48,6 +49,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/green_4"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,8 +67,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/textbox_outline"
+                android:textColorHint="@color/grey_1"
                 app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp">
+                app:boxStrokeWidthFocused="0dp"
+                app:cursorColor="@color/white"
+                app:hintTextColor="@color/grey_1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/reg_emailBox"
@@ -76,7 +81,8 @@
                     android:ems="10"
                     android:hint="Type your email"
                     android:inputType="textEmailAddress"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,8 +92,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/textbox_outline"
+                android:textColorHint="@color/grey_1"
                 app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp">
+                app:boxStrokeWidthFocused="0dp"
+                app:cursorColor="@color/white"
+                app:hintTextColor="@color/grey_1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/reg_passwordBox"
@@ -97,7 +106,8 @@
                     android:ems="10"
                     android:hint="Type your password"
                     android:inputType="textPassword"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,8 +117,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/textbox_outline"
+                android:textColorHint="@color/grey_1"
                 app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp">
+                app:boxStrokeWidthFocused="0dp"
+                app:cursorColor="@color/white"
+                app:hintTextColor="@color/grey_1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/reg_repasswordBox"
@@ -118,7 +131,8 @@
                     android:ems="10"
                     android:hint="Confirm your password"
                     android:inputType="textPassword"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,7 +142,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#4CAF50"
-                android:text="Continue" />
+                android:text="Continue"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvMoveToLogin"
@@ -136,7 +151,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="You already have an account? Please Sign in." />
+                android:text="You already have an account? Please Sign in."
+                android:textColor="@color/grey_1" />
 
         </LinearLayout>
 

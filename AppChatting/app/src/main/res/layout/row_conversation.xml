@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?selectableItemBackground"
+    android:background="@drawable/ripple_background"
     android:paddingLeft="10dp"
     android:paddingTop="10dp"
     android:paddingRight="10dp">
@@ -13,7 +13,7 @@
         android:id="@+id/profile"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/avatar"
+        android:src="@drawable/avatar2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,9 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="Sample Name"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profile"
         app:layout_constraintTop_toTopOf="@+id/profile" />
 
@@ -34,6 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tap to chat"
+        android:textColor="@color/grey_2"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/username"
         app:layout_constraintTop_toBottomOf="@+id/username" />
@@ -42,19 +42,20 @@
         android:id="@+id/msgTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="2dp"
         android:text=""
-        android:textSize="14sp"
         android:textAlignment="textEnd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="@color/grey_2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view4"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
-        android:background="#E4E4E4"
+        android:background="@color/dark_grey_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile" />

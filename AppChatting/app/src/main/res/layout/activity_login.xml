@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f9f9f9"
+    android:background="@color/green_4"
     tools:context=".Activities.LoginActivity">
 
     <ImageView
@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mobile_auth" />
+        app:srcCompat="@drawable/authentication" />
 
     <TextView
         android:id="@+id/loginLbl"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Login"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
@@ -37,6 +37,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="Sign in to continue."
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/loginLbl"
         app:layout_constraintStart_toStartOf="@+id/loginLbl"
@@ -48,6 +49,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/green_4"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,8 +67,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/textbox_outline"
+                android:textColorHint="@color/grey_1"
                 app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp">
+                app:boxStrokeWidthFocused="0dp"
+                app:cursorColor="@color/white"
+                app:hintTextColor="@color/grey_1">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailBox"
@@ -76,7 +81,8 @@
                     android:ems="10"
                     android:hint="Type your email"
                     android:inputType="textEmailAddress"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,8 +92,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/textbox_outline"
+                android:textColorHint="@color/grey_1"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
+                app:cursorColor="@color/white"
+                app:endIconTint="@color/grey_1"
+                app:hintTextColor="@color/grey_1"
                 app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -97,8 +107,9 @@
                     android:background="@android:color/transparent"
                     android:ems="10"
                     android:hint="Type your password"
+                    android:inputType="textPassword"
                     android:minHeight="48dp"
-                    android:inputType="textPassword" />
+                    android:textColor="@color/white" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,9 +117,10 @@
                 android:id="@+id/tvForgotPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Forgot Password?"
+                android:layout_gravity="end"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="end"/>
+                android:text="Forgot Password?"
+                android:textColor="@color/grey_1" />
 
             <Button
                 android:id="@+id/loginBtn"
@@ -116,15 +128,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#4CAF50"
-                android:text="Login" />
+                android:text="Login"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvSignup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="You don't have account? Sign up now."
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="center"/>
+                android:text="You don't have account? Sign up now."
+                android:textColor="@color/grey_1" />
 
         </LinearLayout>
 

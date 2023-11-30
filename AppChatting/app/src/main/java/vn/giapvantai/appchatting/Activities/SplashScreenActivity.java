@@ -55,7 +55,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         // Check if the user is already logged in
         FirebaseUser user = auth.getCurrentUser();
-        long delayMillis = (user != null) ? 1000 : 2100;
+        long delayMillis = (user != null) ? 900 : 1900;
 
         new Handler().postDelayed(() -> {
             if (user != null) {
