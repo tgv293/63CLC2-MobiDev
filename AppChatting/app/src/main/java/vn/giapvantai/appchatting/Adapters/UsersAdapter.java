@@ -16,15 +16,17 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import vn.giapvantai.appchatting.Activities.ChatActivity;
-import vn.giapvantai.appchatting.R;
-import vn.giapvantai.appchatting.Models.User;
-import vn.giapvantai.appchatting.databinding.RowConversationBinding;
 
-import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
+
+import vn.giapvantai.appchatting.Activities.ChatActivity;
+import vn.giapvantai.appchatting.Models.User;
+import vn.giapvantai.appchatting.R;
+import vn.giapvantai.appchatting.databinding.RowConversationBinding;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHolder> {
 
@@ -62,15 +64,17 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
                         if(snapshot.exists()) {
                             String lastMsg = snapshot.child("lastMsg").getValue(String.class);
                             Long timeLong = snapshot.child("lastMsgTime").getValue(Long.class);
+
+                            // Check if the timeLong is null before unboxing
                             if (timeLong != null) {
                                 long time = timeLong;
-                                SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm a", new Locale("vi", "VN"));
+                                DateFormat dateFormat = DateFormat.getTimeInstance(DateFormat.SHORT, new Locale("vi", "VN"));
+                                dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Ho_Chi_Minh")); // Set timezone to Vietnam
                                 holder.binding.msgTime.setText(dateFormat.format(new Date(time)));
                                 holder.binding.lastMsg.setText(lastMsg);
                             } else {
-                                // Handle the case where time is null
-                                holder.binding.msgTime.setText("Thời gian không xác định");
-                                holder.binding.lastMsg.setText(lastMsg);
+                                // Handle the case where timeLong is null
+                                holder.binding.lastMsg.setText("No time available");
                             }
                         } else {
                             holder.binding.lastMsg.setText("Tap to chat");

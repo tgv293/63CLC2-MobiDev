@@ -82,15 +82,15 @@ public class MainActivity extends AppCompatActivity {
         binding.recyclerView.setAdapter(usersAdapter);
 
         binding.recyclerView.showShimmerAdapter();
+        binding.statusList.showShimmerAdapter();
 
         database.getReference().child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 users.clear();
-                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                for(DataSnapshot snapshot1 : snapshot.getChildren()) {
                     User user = snapshot1.getValue(User.class);
-                    assert user != null;
-                    if (!user.getUid().equals(FirebaseAuth.getInstance().getUid()))
+                    if(!user.getUid().equals(FirebaseAuth.getInstance().getUid()))
                         users.add(user);
                 }
                 binding.recyclerView.hideShimmerAdapter();
@@ -134,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -201,12 +200,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.search) {
-            Toast.makeText(this, "Search clicked.", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.settings) {
-            Toast.makeText(this, "Settings Clicked.", Toast.LENGTH_SHORT).show();
-        }
+//        switch (item.getItemId()) {
+//            case R.id.group:
+//                startActivity(new Intent(MainActivity.this, GroupChatActivity.class));
+//                break;
+//            case R.id.search:
+//                Toast.makeText(this, "Search clicked.", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.settings:
+//                Toast.makeText(this, "Settings Clicked.", Toast.LENGTH_SHORT).show();
+//                break;
+//        }
         return super.onOptionsItemSelected(item);
     }
 
