@@ -6,6 +6,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
+        namespace = "vn.giapvantai.musicplayer"
         applicationId = "vn.giapvantai.musicplayer"
         minSdk = 24
         targetSdk = 33
@@ -30,6 +31,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 
 }
@@ -54,21 +56,21 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
     implementation("com.afollestad:material-cab:2.0.1")
-    implementation("com.afollestad.material-dialogs:commons:3.3.0")
-    implementation("com.afollestad.material-dialogs:core:3.3.0")
+    implementation("com.afollestad.material-dialogs:commons:0.9.6.0")
+    implementation("com.afollestad.material-dialogs:core:0.9.6.0")
     implementation("com.github.kabouzeid:AndroidSlidingUpPanel:6")
     implementation("com.github.kabouzeid:app-theme-helper:1.3.10")
     implementation("com.github.kabouzeid:RecyclerView-FastScroll:1.0.16-kmod")
     implementation("com.github.kabouzeid:SeekArc:1.2-kmod")
     implementation("com.github.ksoichiro:android-observablescrollview:1.6.0")
     implementation("com.heinrichreimersoftware:material-intro:2.0.0")
-    implementation("de.psdev.licensesdialog:licensesdialog:2.1.0")
+    implementation("de.psdev.licensesdialog:licensesdialog:2.2.0")
     implementation("me.zhanghai.android.materialprogressbar:library:1.6.1")
     implementation("com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0") {
         isTransitive = true
     }
 
-    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
