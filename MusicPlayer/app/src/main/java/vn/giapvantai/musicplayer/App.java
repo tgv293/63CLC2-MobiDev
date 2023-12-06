@@ -1,35 +1,20 @@
 package vn.giapvantai.musicplayer;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
-import android.os.Build;
-
-import com.kabouzeid.appthemehelper.ThemeStore;
-import vn.giapvantai.musicplayer.appshortcuts.DynamicShortcutManager;
+import android.content.Context;
 
 public class App extends Application {
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
 
-    private static App app;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        app = this;
-
-        // default theme
-        if (!ThemeStore.isConfigured(this, 1)) {
-            ThemeStore.editTheme(this)
-                    .primaryColorRes(R.color.primary_color)
-                    .accentColorRes(R.color.accent_color)
-                    .commit();
-        }
-
-        // Set up dynamic shortcuts
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-            new DynamicShortcutManager(this).initDynamicShortcuts();
-        }
+    public static Context getContext() {
+        return App.context;
     }
 
-    public static App getInstance() {
-        return app;
+    public void onCreate() {
+        super.onCreate();
+
+        App.context = getApplicationContext();
     }
 }
