@@ -8,6 +8,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
+import vn.giapvantai.musicplayer.App;
+import vn.giapvantai.musicplayer.MPPreferences;
 import vn.giapvantai.musicplayer.model.Album;
 import vn.giapvantai.musicplayer.model.Artist;
 import vn.giapvantai.musicplayer.model.Folder;
@@ -32,8 +34,13 @@ public class MainViewModel extends ViewModel {
     }
 
     public void setSongsList(List<Music> musicList) {
+        List<String> excludedFolderList = MPPreferences.getExcludedFolders(App.getContext());
+        List<Music> songs = new ArrayList<>();
 
-        List<Music> songs = new ArrayList<>(musicList);
+        for (Music music : musicList) {
+            if (!excludedFolderList.contains(music.relativePath))
+                songs.add(music);
+        }
 
         songs.sort(new SongComparator());
         if (songsList == null) {

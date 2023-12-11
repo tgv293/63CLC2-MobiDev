@@ -1,11 +1,11 @@
 package vn.giapvantai.musicplayer.player;
 
-import vn.giapvantai.musicplayer.model.Music;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import vn.giapvantai.musicplayer.model.Music;
 
 /**
  * Lớp quản lý hàng đợi phát nhạc của người chơi âm nhạc.

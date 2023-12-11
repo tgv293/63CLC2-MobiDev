@@ -2,10 +2,10 @@ package vn.giapvantai.musicplayer.listener;
 
 import androidx.annotation.IntDef;
 
-import vn.giapvantai.musicplayer.model.Music;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import vn.giapvantai.musicplayer.model.Music;
 
 public interface PlayerListener {
 

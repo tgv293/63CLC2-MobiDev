@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import vn.giapvantai.musicplayer.MPConstants;
 import vn.giapvantai.musicplayer.MPPreferences;
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.adapter.SongsAdapter;
+import vn.giapvantai.musicplayer.helper.ThemeHelper;
 import vn.giapvantai.musicplayer.listener.MusicSelectListener;
 import vn.giapvantai.musicplayer.model.Album;
 
@@ -34,6 +36,10 @@ public class SelectedAlbumActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Thiết lập chủ đề theo cài đặt người dùng
+        setTheme(ThemeHelper.getTheme(MPPreferences.getTheme(getApplicationContext())));
+        // Thiết lập chủ đề tối theo cài đặt người dùng
+        AppCompatDelegate.setDefaultNightMode(MPPreferences.getThemeMode(getApplicationContext()));
         setContentView(R.layout.activity_selected_album);
 
         // Lấy thông tin album từ intent
@@ -59,6 +65,26 @@ public class SelectedAlbumActivity extends AppCompatActivity {
 
         // Hiển thị dữ liệu album trên giao diện
         setAlbumDataToUi();
+        // Thiết lập các tùy chọn trên thanh công cụ
+        setUpOptions();
+    }
+
+    // Thiết lập các tùy chọn trên thanh công cụ
+    private void setUpOptions() {
+        toolbar.setOnMenuItemClickListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.menu_add_to_queue) {
+                // Thêm tất cả bài hát trong album vào hàng đợi
+                musicSelectListener.addToQueue(album.music);
+                return true;
+            }
+
+            return false;
+        });
+
+        // Thiết lập sự kiện click cho nút quay lại
+        toolbar.setNavigationOnClickListener(v -> finish());
     }
 
     // Hiển thị dữ liệu album lên giao diện

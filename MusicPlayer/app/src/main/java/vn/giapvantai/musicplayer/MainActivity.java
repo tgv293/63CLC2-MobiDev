@@ -1,7 +1,9 @@
 package vn.giapvantai.musicplayer;
 
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -26,20 +30,28 @@ import java.util.List;
 import java.util.Locale;
 
 import vn.giapvantai.musicplayer.activities.PlayerDialog;
+import vn.giapvantai.musicplayer.activities.QueueDialog;
 import vn.giapvantai.musicplayer.adapter.MainPagerAdapter;
+import vn.giapvantai.musicplayer.dialogs.SleepTimerDialog;
+import vn.giapvantai.musicplayer.dialogs.SleepTimerDisplayDialog;
 import vn.giapvantai.musicplayer.helper.MusicLibraryHelper;
 import vn.giapvantai.musicplayer.helper.PermissionHelper;
+import vn.giapvantai.musicplayer.helper.ThemeHelper;
 import vn.giapvantai.musicplayer.listener.MusicSelectListener;
 import vn.giapvantai.musicplayer.listener.PlayerDialogListener;
 import vn.giapvantai.musicplayer.listener.PlayerListener;
+import vn.giapvantai.musicplayer.listener.SleepTimerSetListener;
 import vn.giapvantai.musicplayer.model.Music;
 import vn.giapvantai.musicplayer.player.PlayerBuilder;
 import vn.giapvantai.musicplayer.player.PlayerManager;
 import vn.giapvantai.musicplayer.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity
-        implements MusicSelectListener, PlayerListener, View.OnClickListener, PlayerDialogListener {
+        implements MusicSelectListener, PlayerListener, View.OnClickListener, SleepTimerSetListener, PlayerDialogListener {
 
+    public static boolean isSleepTimerRunning;
+    public static MutableLiveData<Long> sleepTimerTick;
+    private static CountDownTimer sleepTimer;
     private RelativeLayout playerView;
     private ImageView albumArt;
     private TextView songName;
@@ -47,6 +59,7 @@ public class MainActivity extends AppCompatActivity
     private ImageButton play_pause;
     private LinearProgressIndicator progressIndicator;
     private PlayerDialog playerDialog;
+    private QueueDialog queueDialog;
     private PlayerBuilder playerBuilder;
     private PlayerManager playerManager;
     private boolean albumState;
@@ -55,6 +68,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Thiết lập theme dựa trên cài đặt lưu trữ
+        setTheme(ThemeHelper.getTheme(MPPreferences.getTheme(MainActivity.this)));
+        AppCompatDelegate.setDefaultNightMode(MPPreferences.getThemeMode(MainActivity.this));
         setContentView(R.layout.activity_main);
         MPConstants.musicSelectListener = this;
 
@@ -135,6 +151,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            ThemeHelper.applySettings(this);
+        }
     }
 
     @Override
@@ -146,6 +165,9 @@ public class MainActivity extends AppCompatActivity
 
         if (playerDialog != null)
             playerDialog.dismiss();
+
+        if (queueDialog != null)
+            queueDialog.dismiss();
     }
 
     @Override
@@ -254,15 +276,101 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public void setTimer(int minutes) {
+        // Thiết lập và bắt đầu đồng hồ đếm ngủ
+        if (!isSleepTimerRunning) {
+            isSleepTimerRunning = true;
+            sleepTimer = new CountDownTimer(minutes * 60 * 1000L, 1000) {
+                @Override
+                public void onTick(long l) {
+                    if (sleepTimerTick == null) sleepTimerTick = new MutableLiveData<>();
+                    sleepTimerTick.postValue(l);
+                }
+
+                @Override
+                public void onFinish() {
+                    isSleepTimerRunning = false;
+                    playerManager.pauseMediaPlayer();
+                }
+            }.start();
+        }
+    }
+
+    @Override
+    public void cancelTimer() {
+        // Hủy bỏ đồng hồ đếm ngủ nếu đang chạy
+        if (isSleepTimerRunning && sleepTimer != null) {
+            isSleepTimerRunning = false;
+            sleepTimer.cancel();
+        }
+    }
+
+    @Override
+    public MutableLiveData<Long> getTick() {
+        return sleepTimerTick;
+    }
+
+    @Override
+    public void speedOptionSelect(float speedMultiplier) {
+        if (playerManager != null) {
+            playerManager.setPlaybackSpeed(speedMultiplier);
+        }
+    }
+
+    @Override
     public void queueOptionSelect() {
         // Hiển thị dialog hàng đợi
         setUpQueueDialog();
     }
 
+    @Override
+    public void sleepTimerOptionSelect() {
+        // Hiển thị dialog đặt thời gian ngủ
+        setUpSleepTimerDialog();
+    }
+
     private void setUpQueueDialog() {
+        // Hiển thị dialog hàng đợi và ẩn dialog người nghe
+        queueDialog = new QueueDialog(MainActivity.this, playerManager.getPlayerQueue());
+        queueDialog.setOnDismissListener(v -> {
+            if(!this.isDestroyed()) {
+                playerDialog.show();
+            }
+        });
+
+        playerDialog.dismiss();
+        queueDialog.show();
     }
 
     private void setUpQueueDialogHeadless() {
+        // Hiển thị dialog hàng đợi mà không cần ẩn dialog người nghe
+        queueDialog = new QueueDialog(MainActivity.this, playerManager.getPlayerQueue());
+        queueDialog.show();
     }
 
+    private void setUpSleepTimerDialog() {
+        // Hiển thị dialog đặt thời gian ngủ và ẩn dialog người nghe
+        if (MainActivity.isSleepTimerRunning) {
+            setUpSleepTimerDisplayDialog();
+            return;
+        }
+        SleepTimerDialog sleepTimerDialog = new SleepTimerDialog(MainActivity.this, this);
+        sleepTimerDialog.setOnDismissListener(v -> {
+            if(!this.isDestroyed()) playerDialog.show();
+        });
+
+        playerDialog.dismiss();
+        sleepTimerDialog.show();
+    }
+
+    private void setUpSleepTimerDisplayDialog() {
+        // Hiển thị dialog hiển thị thời gian ngủ còn lại và ẩn dialog người nghe
+        SleepTimerDisplayDialog sleepTimerDisplayDialog = new SleepTimerDisplayDialog(MainActivity.this, this);
+        sleepTimerDisplayDialog.setOnDismissListener(v -> {
+            if(!this.isDestroyed()) playerDialog.show();
+        });
+
+        playerDialog.dismiss();
+        sleepTimerDisplayDialog.show();
+    }
 }

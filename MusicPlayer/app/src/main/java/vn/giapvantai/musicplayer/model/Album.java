@@ -5,10 +5,10 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import vn.giapvantai.musicplayer.helper.ListHelper;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import vn.giapvantai.musicplayer.helper.ListHelper;
 
 /**
  * Đối tượng Album chứa thông tin về một album âm nhạc, bao gồm tiêu đề, năm, nghệ sĩ, thời lượng và danh sách các bài hát.

@@ -8,12 +8,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+import java.util.Locale;
+
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.listener.ArtistSelectListener;
 import vn.giapvantai.musicplayer.model.Artist;
-
-import java.util.List;
-import java.util.Locale;
 
 public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.MyViewHolder> {
 

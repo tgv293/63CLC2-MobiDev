@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,9 +16,11 @@ import java.util.List;
 import java.util.Locale;
 
 import vn.giapvantai.musicplayer.MPConstants;
+import vn.giapvantai.musicplayer.MPPreferences;
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.adapter.HorizontalAlbumsAdapter;
 import vn.giapvantai.musicplayer.adapter.SongsAdapter;
+import vn.giapvantai.musicplayer.helper.ThemeHelper;
 import vn.giapvantai.musicplayer.listener.AlbumSelectListener;
 import vn.giapvantai.musicplayer.listener.MusicSelectListener;
 import vn.giapvantai.musicplayer.model.Album;
@@ -36,6 +39,10 @@ public class SelectedArtistActivity extends AppCompatActivity implements AlbumSe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Thiết lập chủ đề theo cài đặt người dùng
+        setTheme(ThemeHelper.getTheme(MPPreferences.getTheme(getApplicationContext())));
+        // Thiết lập chủ đề tối theo cài đặt người dùng
+        AppCompatDelegate.setDefaultNightMode(MPPreferences.getThemeMode(getApplicationContext()));
         setContentView(R.layout.activity_selected_artist);
 
         // Lấy thông tin nghệ sĩ từ intent
@@ -83,6 +90,12 @@ public class SelectedArtistActivity extends AppCompatActivity implements AlbumSe
     private void setUpOptions() {
         toolbar.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
+
+            if (id == R.id.menu_add_to_queue) {
+                // Thêm tất cả bài hát trong album mặc định vào hàng đợi
+                musicSelectListener.addToQueue(musicList);
+                return true;
+            }
 
             return false;
         });

@@ -1,6 +1,8 @@
 package vn.giapvantai.musicplayer.activities;
 
 import android.content.Context;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -8,11 +10,14 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.helper.MusicLibraryHelper;
@@ -20,19 +25,24 @@ import vn.giapvantai.musicplayer.listener.PlayerDialogListener;
 import vn.giapvantai.musicplayer.listener.PlayerListener;
 import vn.giapvantai.musicplayer.model.Music;
 import vn.giapvantai.musicplayer.player.PlayerManager;
+import vn.giapvantai.musicplayer.player.PlayerQueue;
 
 public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBarChangeListener, PlayerListener, View.OnClickListener {
 
     private final PlayerManager playerManager;
     private final PlayerDialogListener playerDialogListener;
+    private final PlayerQueue playerQueue;
 
     // Các thành phần giao diện
     private final ImageView albumArt;
+    private final ImageButton musicSpeedButton;
     private final ImageButton repeatControl;
     private final ImageButton shuffleControl;
     private final ImageButton prevControl;
     private final ImageButton nextControl;
     private final ImageButton playPauseControl;
+    private final ImageButton musicQueue;
+    private final ImageButton sleepTimer;
     private final TextView songName;
     private final TextView songAlbum;
     private final TextView currentDuration;
@@ -49,6 +59,7 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
         this.playerDialogListener = listener;
         this.playerManager = playerManager;
         this.playerManager.attachListener(this);
+        playerQueue = playerManager.getPlayerQueue();
 
         // Ánh xạ các thành phần giao diện
         albumArt = findViewById(R.id.album_art);
@@ -63,6 +74,9 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
         totalDuration = findViewById(R.id.total_duration);
         songProgress = findViewById(R.id.song_progress);
         songDetails = findViewById(R.id.audio_details);
+        musicQueue = findViewById(R.id.music_queue);
+        sleepTimer = findViewById(R.id.sleep_timer);
+        musicSpeedButton = findViewById(R.id.music_speed);
 
         // Thiết lập giao diện và lắng nghe sự kiện
         setUpUi();
@@ -97,7 +111,13 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
         int icon = playerManager.isPlaying() ? R.drawable.ic_controls_pause : R.drawable.ic_controls_play;
         playPauseControl.setImageResource(icon);
 
-        shuffleControl.setAlpha(0.3f);
+        // Thiết lập trạng thái của nút Shuffle
+        if (playerQueue.isShuffle()) shuffleControl.setAlpha(1f);
+        else shuffleControl.setAlpha(0.3f);
+
+        // Thiết lập biểu tượng lặp lại
+        int repeat = playerQueue.isRepeat() ? R.drawable.ic_controls_repeat_one : R.drawable.ic_controls_repeat;
+        repeatControl.setImageResource(repeat);
 
         // Hiển thị thời gian tổng cộng của bài hát
         totalDuration.setText(MusicLibraryHelper.formatDurationTimeStyle(playerManager.getDuration()));
@@ -129,9 +149,55 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
         playPauseControl.setOnClickListener(this);
         nextControl.setOnClickListener(this);
         shuffleControl.setOnClickListener(this);
+        musicQueue.setOnClickListener(this);
+        sleepTimer.setOnClickListener(this);
+        musicSpeedButton.setOnClickListener(this::showSpeedMenu);
 
         // Thiết lập thời gian hiện tại là "0:00"
         currentDuration.setText(getContext().getString(R.string.zero_time));
+    }
+
+    // Hiển thị menu tốc độ phát nhạc khi người dùng nhấn nút tốc độ
+    private void showSpeedMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(getContext(), view);
+        MenuInflater inflater = popupMenu.getMenuInflater();
+        inflater.inflate(R.menu.menu_speed, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(item -> {
+            handleSpeedMenuItemClick(item);
+            return true;
+        });
+
+        popupMenu.show();
+    }
+
+    // Xử lý sự kiện khi người dùng chọn tốc độ phát nhạc từ menu
+    private void handleSpeedMenuItemClick(MenuItem item) {
+        if (item == null) {
+            return;
+        }
+
+        Map<Integer, Float> speedMultiplierMap = new HashMap<>();
+        speedMultiplierMap.put(R.id.speed_025x, 0.25f);
+        speedMultiplierMap.put(R.id.speed_05x, 0.5f);
+        speedMultiplierMap.put(R.id.speed_075x, 0.75f);
+        speedMultiplierMap.put(R.id.speed_normal, 1.0f);
+        speedMultiplierMap.put(R.id.speed_125x, 1.25f);
+        speedMultiplierMap.put(R.id.speed_15x, 1.5f);
+        speedMultiplierMap.put(R.id.speed_175x, 1.75f);
+        speedMultiplierMap.put(R.id.speed_2x, 2.0f);
+        speedMultiplierMap.put(R.id.speed_225x, 2.25f);
+        speedMultiplierMap.put(R.id.speed_25x, 2.5f);
+
+        Float speedMultiplier = speedMultiplierMap.get(item.getItemId());
+
+        if (speedMultiplier == null) {
+            speedMultiplier = 1.0f;
+        }
+
+        if (playerDialogListener != null) {
+            playerDialogListener.speedOptionSelect(speedMultiplier);
+        }
     }
 
     // Chuyển đổi phần trăm sang vị trí thời gian trong bài hát
@@ -202,14 +268,28 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.control_shuffle) setShuffle();
+        if (id == R.id.control_repeat) setRepeat();
+        else if (id == R.id.control_shuffle) setShuffle();
         else if (id == R.id.control_prev) playerManager.playPrev();
         else if (id == R.id.control_next) playerManager.playNext();
         else if (id == R.id.control_play_pause) playerManager.playPause();
+        else if (id == R.id.music_queue) this.playerDialogListener.queueOptionSelect();
+        else if (id == R.id.sleep_timer) this.playerDialogListener.sleepTimerOptionSelect();
+    }
+
+    // Phương thức xử lý sự kiện khi người dùng nhấn vào nút lặp lại
+    private void setRepeat() {
+        boolean repeatState = !playerQueue.isRepeat();
+        playerQueue.setRepeat(repeatState);
+        int repeat = repeatState ? R.drawable.ic_controls_repeat_one : R.drawable.ic_controls_repeat;
+        repeatControl.setImageResource(repeat);
     }
 
     // Phương thức xử lý sự kiện khi người dùng nhấn vào nút shuffle
     private void setShuffle() {
-        shuffleControl.setAlpha(0.3f);
+        boolean shuffleState = !playerQueue.isShuffle();
+        playerQueue.setShuffle(shuffleState);
+        if (shuffleState) shuffleControl.setAlpha(1f);
+        else shuffleControl.setAlpha(0.3f);
     }
 }

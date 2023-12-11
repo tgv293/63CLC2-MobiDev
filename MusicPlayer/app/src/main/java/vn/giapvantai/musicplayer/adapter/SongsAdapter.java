@@ -9,15 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.List;
+import java.util.Locale;
+
 import vn.giapvantai.musicplayer.MPPreferences;
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.helper.MusicLibraryHelper;
 import vn.giapvantai.musicplayer.listener.MusicSelectListener;
 import vn.giapvantai.musicplayer.model.Music;
-import com.bumptech.glide.Glide;
-
-import java.util.List;
-import java.util.Locale;
 
 public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.MyViewHolder> {
 

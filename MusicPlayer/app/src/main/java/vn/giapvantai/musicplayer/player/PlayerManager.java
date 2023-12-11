@@ -99,7 +99,7 @@ public class PlayerManager implements MediaPlayer.OnBufferingUpdateListener, Med
     }
 
     public void registerActionsReceiver() {
-        notificationReceiver = new PlayerManager.NotificationReceiver();
+        notificationReceiver = new NotificationReceiver();
         final IntentFilter intentFilter = new IntentFilter();
 
         intentFilter.addAction(PREV_ACTION);
@@ -111,6 +111,12 @@ public class PlayerManager implements MediaPlayer.OnBufferingUpdateListener, Med
         intentFilter.addAction(AudioManager.ACTION_AUDIO_BECOMING_NOISY);
 
         playerService.registerReceiver(notificationReceiver, intentFilter);
+    }
+
+    public void setPlaybackSpeed(float speedMultiplier) {
+        if (mediaPlayer != null) {
+            mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(speedMultiplier));
+        }
     }
 
     public void unregisterActionsReceiver() {

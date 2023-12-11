@@ -12,17 +12,18 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.adapter.SongsAdapter;
 import vn.giapvantai.musicplayer.helper.ListHelper;
 import vn.giapvantai.musicplayer.listener.MusicSelectListener;
 import vn.giapvantai.musicplayer.model.Music;
 import vn.giapvantai.musicplayer.viewmodel.MainViewModel;
-import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SongsFragment extends Fragment implements SearchView.OnQueryTextListener {
 

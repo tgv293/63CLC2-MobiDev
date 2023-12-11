@@ -9,13 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.List;
+
 import vn.giapvantai.musicplayer.MPPreferences;
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.listener.AlbumSelectListener;
 import vn.giapvantai.musicplayer.model.Album;
-import com.bumptech.glide.Glide;
-
-import java.util.List;
 
 public class HorizontalAlbumsAdapter extends RecyclerView.Adapter<HorizontalAlbumsAdapter.MyViewHolder> {
 
