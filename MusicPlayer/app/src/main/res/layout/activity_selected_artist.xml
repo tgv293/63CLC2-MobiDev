@@ -16,7 +16,13 @@
             app:menu="@menu/menu_add_to_queue"
             app:navigationIcon="@drawable/ic_back"
             app:title="Albums"
-            app:titleTextColor="?android:attr/textColorPrimary" />
+            app:titleTextColor="?android:attr/textColorPrimary"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
         <RelativeLayout
             android:id="@+id/album_details_layout"
@@ -54,7 +60,13 @@
                 android:maxLines="1"
                 android:textColor="@color/colorTextHigh"
                 android:textSize="@dimen/text_big"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
 
             <TextView
                 android:id="@+id/album_song_count"

@@ -84,6 +84,8 @@ public class SelectedArtistActivity extends AppCompatActivity implements AlbumSe
 
         // Thiết lập các tùy chọn trên thanh công cụ
         setUpOptions();
+
+        albumTitle.setSelected(true);
     }
 
     // Thiết lập các tùy chọn trên thanh công cụ

@@ -18,6 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.helper.MusicLibraryHelper;
@@ -81,6 +82,8 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
         // Thiết lập giao diện và lắng nghe sự kiện
         setUpUi();
         setUpListeners();
+        Objects.requireNonNull(songName).setSelected(true);
+        Objects.requireNonNull(songAlbum).setSelected(true);
 
         // Xử lý sự kiện khi hủy hoặc đóng dialog
         this.setOnCancelListener(dialogInterface -> detachListener());
@@ -93,7 +96,7 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
     }
 
     // Thiết lập giao diện người dùng
-    private void setUpUi() {
+    public void setUpUi() {
         Music music = playerManager.getCurrentMusic();
 
         // Hiển thị thông tin bài hát và nghệ sĩ
@@ -257,6 +260,7 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
     public void onPrepared() {
         // Không sử dụng
     }
+
 
     // Lắng nghe sự kiện khi trình phát nhạc được giải phóng
     @Override

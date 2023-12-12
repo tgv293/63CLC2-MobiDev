@@ -21,6 +21,7 @@ public interface PlayerListener {
 
     void onRelease();
 
+
     @IntDef({State.INVALID,
             State.PLAYING,
             State.PAUSED,

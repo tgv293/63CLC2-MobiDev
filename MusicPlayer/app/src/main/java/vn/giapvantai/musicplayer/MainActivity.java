@@ -272,7 +272,22 @@ public class MainActivity extends AppCompatActivity
     private void setUpPlayerDialog() {
         // Hiển thị dialog người nghe
         playerDialog = new PlayerDialog(this, playerManager, this);
+        playerDialog.setOnDismissListener(dialogInterface -> {
+            // Cập nhật giao diện khi PlayerDialog bị đóng
+            updatePlayerDialogUI();
+        });
+        playerDialog.setOnCancelListener(dialogInterface -> {
+            // Cập nhật giao diện khi PlayerDialog bị hủy
+            updatePlayerDialogUI();
+        });
         playerDialog.show();
+    }
+
+    // Phương thức cập nhật giao diện khi PlayerDialog được hiển thị lại
+    private void updatePlayerDialogUI() {
+        if (playerDialog != null && playerDialog.isShowing()) {
+            playerDialog.setUpUi(); // Gọi phương thức setUpUi để cập nhật các thành phần giao diện
+        }
     }
 
     @Override

@@ -67,6 +67,7 @@ public class SelectedAlbumActivity extends AppCompatActivity {
         setAlbumDataToUi();
         // Thiết lập các tùy chọn trên thanh công cụ
         setUpOptions();
+        albumName.setSelected(true);
     }
 
     // Thiết lập các tùy chọn trên thanh công cụ
