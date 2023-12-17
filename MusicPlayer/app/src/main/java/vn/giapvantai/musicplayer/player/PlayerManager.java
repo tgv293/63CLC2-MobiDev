@@ -91,15 +91,19 @@ public class PlayerManager implements MediaPlayer.OnBufferingUpdateListener, Med
         this.playerQueue = PlayerQueue.getInstance();
         this.audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 
+        // Tạo một Observer để theo dõi sự thay đổi trong tiến trình phát
         Observer<Integer> progressObserver = percent -> {
+            // Gửi sự kiện đến các đối tác lắng nghe về sự thay đổi vị trí phát
             for (PlayerListener playerListener : playerListeners)
                 playerListener.onPositionChanged(percent);
         };
+        // Đăng ký Observer để theo dõi sự thay đổi vị trí phát
         progressPercent.observeForever(progressObserver);
     }
 
     public void registerActionsReceiver() {
-        notificationReceiver = new NotificationReceiver();
+        // Khởi tạo và đăng ký Receiver để lắng nghe các sự kiện hệ thống và truyền thông
+        notificationReceiver = new PlayerManager.NotificationReceiver();
         final IntentFilter intentFilter = new IntentFilter();
 
         intentFilter.addAction(PREV_ACTION);
@@ -114,12 +118,14 @@ public class PlayerManager implements MediaPlayer.OnBufferingUpdateListener, Med
     }
 
     public void setPlaybackSpeed(float speedMultiplier) {
+        // Đặt tốc độ phát của trình phát nếu có
         if (mediaPlayer != null) {
             mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(speedMultiplier));
         }
     }
 
     public void unregisterActionsReceiver() {
+        // Hủy đăng ký Receiver nếu có
         if (playerService != null && notificationReceiver != null) {
             try {
                 playerService.unregisterReceiver(notificationReceiver);
@@ -140,13 +146,16 @@ public class PlayerManager implements MediaPlayer.OnBufferingUpdateListener, Med
     }
 
     private void setPlayerState(@PlayerListener.State int state) {
+        // Đặt trạng thái của trình phát và thông báo đến các đối tác lắng nghe
         playerState = state;
         for (PlayerListener listener : playerListeners) {
             listener.onStateChanged(state);
         }
 
+        // Cập nhật thông báo trong trình quản lý thông báo
         playerService.getNotificationManager().updateNotification();
 
+        // Cập nhật trạng thái của MediaSessionCompat
         int playbackState = isPlaying() ? PlaybackStateCompat.STATE_PLAYING : PlaybackStateCompat.STATE_PAUSED;
         int currentPosition = mediaPlayer == null ? 0 : mediaPlayer.getCurrentPosition();
 
@@ -196,6 +205,7 @@ public class PlayerManager implements MediaPlayer.OnBufferingUpdateListener, Med
         initMediaPlayer();
     }
 
+    // Thêm nhạc vào hàng chờ
     public void addMusicQueue(List<Music> musicList) {
         playerQueue.addMusicListToQueue(new ArrayList<>(musicList));
 
@@ -468,7 +478,7 @@ public class PlayerManager implements MediaPlayer.OnBufferingUpdateListener, Med
                 int percent = mediaPlayer.getCurrentPosition() * 100 / mediaPlayer.getDuration();
                 progressPercent.postValue(percent);
             }
-        // Lên lịch thực hiện tiếp theo sau một khoảng thời gian trễ
+            // Lên lịch thực hiện tiếp theo sau một khoảng thời gian trễ
             handler.postDelayed(this, 100);
         }
 

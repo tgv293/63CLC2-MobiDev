@@ -9,17 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import vn.giapvantai.musicplayer.R;
+import vn.giapvantai.musicplayer.adapter.SleepTimerAdapter;
+import vn.giapvantai.musicplayer.listener.MinuteSelectListener;
+import vn.giapvantai.musicplayer.listener.SleepTimerSetListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
-
-import vn.giapvantai.musicplayer.R;
-import vn.giapvantai.musicplayer.adapter.SleepTimerAdapter;
-import vn.giapvantai.musicplayer.listener.MinuteSelectListener;
-import vn.giapvantai.musicplayer.listener.SleepTimerSetListener;
 
 public class SleepTimerDialog extends BottomSheetDialog implements MinuteSelectListener {
 

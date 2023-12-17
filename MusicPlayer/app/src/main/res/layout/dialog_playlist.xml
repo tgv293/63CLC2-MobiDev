@@ -18,37 +18,31 @@
             android:layout_margin="10dp"
             android:fontFamily="@font/nunito_sans_semibold"
             android:letterSpacing="0.2"
-            android:text="@string/sleep_time_help"
+            android:text="@string/playlists"
             android:textColor="?colorPrimary"
             android:textSize="@dimen/text_medium"
             android:textStyle="bold"
             tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/sleep_timer_minutes_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:id="@+id/box_playlist_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/sleep_timer_textbox_placeholder">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="@string/enter_new_playlist_name">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/sleep_timer_minutes"
+                android:id="@+id/new_playlist_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:inputType="number"
+                android:inputType="text"
                 tools:ignore="TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/minutes_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp" />
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/add_sleep_timer"
+            android:id="@+id/new_playlist"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,6 +53,11 @@
             android:text="@string/add"
             tools:ignore="TextContrastCheck" />
 
-    </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/playlist_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp" />
 
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

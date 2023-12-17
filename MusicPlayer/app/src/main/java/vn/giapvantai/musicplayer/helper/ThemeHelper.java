@@ -7,10 +7,10 @@ import android.util.TypedValue;
 
 import androidx.core.content.ContextCompat;
 
-import java.util.HashMap;
-
 import vn.giapvantai.musicplayer.MainActivity;
 import vn.giapvantai.musicplayer.R;
+
+import java.util.HashMap;
 
 public class ThemeHelper {
 

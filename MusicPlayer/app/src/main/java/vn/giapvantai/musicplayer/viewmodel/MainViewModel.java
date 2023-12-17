@@ -33,15 +33,19 @@ public class MainViewModel extends ViewModel {
         return songsList = new MutableLiveData<>();
     }
 
+    // Phương thức để thiết lập danh sách bài hát và loại bỏ các thư mục được loại trừ
     public void setSongsList(List<Music> musicList) {
+        // Lấy danh sách thư mục được loại trừ từ cài đặt
         List<String> excludedFolderList = MPPreferences.getExcludedFolders(App.getContext());
         List<Music> songs = new ArrayList<>();
 
+        // Lọc bài hát để loại bỏ thư mục được loại trừ
         for (Music music : musicList) {
             if (!excludedFolderList.contains(music.relativePath))
                 songs.add(music);
         }
 
+        // Sắp xếp danh sách bài hát và cập nhật LiveData
         songs.sort(new SongComparator());
         if (songsList == null) {
             songsList = new MutableLiveData<>();
@@ -64,10 +68,13 @@ public class MainViewModel extends ViewModel {
         return folderList = new MutableLiveData<>();
     }
 
+    // Phương thức để phân tích danh sách bài hát thành danh sách thư mục
     public void parseFolderList(List<Music> songsList) {
+        // HashMap để lưu trữ thông tin về thư mục
         HashMap<String, Folder> map = new HashMap<>();
         List<Folder> folders = new ArrayList<>();
 
+        // Duyệt qua danh sách bài hát và xây dựng thông tin về thư mục
         for (Music music : songsList) {
             Folder folder;
             if (map.containsKey(music.relativePath)) {
@@ -81,12 +88,14 @@ public class MainViewModel extends ViewModel {
             map.put(music.relativePath, folder);
         }
 
+        // Sắp xếp danh sách thư mục và cập nhật LiveData
         folders.sort(new FolderComparator());
         if (folderList == null)
             folderList = new MutableLiveData<>();
         folderList.setValue(folders);
     }
 
+    // Phương thức để phân tích danh sách bài hát thành danh sách album
     public void parseAlbumList(List<Music> songsList) {
         HashMap<String, Album> albumMap = new HashMap<>();
 
@@ -114,6 +123,7 @@ public class MainViewModel extends ViewModel {
         albumList.setValue(albums);
     }
 
+    // Phương thức để phân tích danh sách bài hát thành danh sách nghệ sĩ
     public void parseArtistList(List<Album> albums) {
         HashMap<String, Artist> artistMap = new HashMap<>();
 

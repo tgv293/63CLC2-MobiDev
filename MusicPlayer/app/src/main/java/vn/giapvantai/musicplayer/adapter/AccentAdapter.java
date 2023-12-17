@@ -11,12 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.core.widget.ImageViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-
 import vn.giapvantai.musicplayer.MPConstants;
 import vn.giapvantai.musicplayer.MPPreferences;
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.helper.ThemeHelper;
+
+import java.util.List;
 
 public class AccentAdapter extends RecyclerView.Adapter<AccentAdapter.MyViewHolder> {
 

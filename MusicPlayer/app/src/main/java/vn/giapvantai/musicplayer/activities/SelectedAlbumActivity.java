@@ -1,5 +1,6 @@
 package vn.giapvantai.musicplayer.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,21 +10,24 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import vn.giapvantai.musicplayer.MPConstants;
+import vn.giapvantai.musicplayer.MPPreferences;
+import vn.giapvantai.musicplayer.R;
+import vn.giapvantai.musicplayer.adapter.SongsAdapter;
+import vn.giapvantai.musicplayer.dialogs.SongOptionDialog;
+import vn.giapvantai.musicplayer.helper.ThemeHelper;
+import vn.giapvantai.musicplayer.listener.MusicSelectListener;
+import vn.giapvantai.musicplayer.listener.PlayListListener;
+import vn.giapvantai.musicplayer.model.Album;
+import vn.giapvantai.musicplayer.model.Music;
+
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.Locale;
 
-import vn.giapvantai.musicplayer.MPConstants;
-import vn.giapvantai.musicplayer.MPPreferences;
-import vn.giapvantai.musicplayer.R;
-import vn.giapvantai.musicplayer.adapter.SongsAdapter;
-import vn.giapvantai.musicplayer.helper.ThemeHelper;
-import vn.giapvantai.musicplayer.listener.MusicSelectListener;
-import vn.giapvantai.musicplayer.model.Album;
-
-public class SelectedAlbumActivity extends AppCompatActivity {
+public class SelectedAlbumActivity extends AppCompatActivity implements PlayListListener {
 
     private final MusicSelectListener musicSelectListener = MPConstants.musicSelectListener;
 
@@ -58,7 +62,7 @@ public class SelectedAlbumActivity extends AppCompatActivity {
         // Thiết lập RecyclerView để hiển thị danh sách các bài hát trong album
         RecyclerView recyclerView = findViewById(R.id.songs_layout);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new SongsAdapter(musicSelectListener, album.music));
+        recyclerView.setAdapter(new SongsAdapter(musicSelectListener, this,album.music));
 
         // Thiết lập sự kiện click cho nút Shuffle
         shuffleControl.setOnClickListener(v -> musicSelectListener.playQueue(album.music, true));
@@ -67,7 +71,6 @@ public class SelectedAlbumActivity extends AppCompatActivity {
         setAlbumDataToUi();
         // Thiết lập các tùy chọn trên thanh công cụ
         setUpOptions();
-        albumName.setSelected(true);
     }
 
     // Thiết lập các tùy chọn trên thanh công cụ
@@ -103,5 +106,12 @@ public class SelectedAlbumActivity extends AppCompatActivity {
                     .load(album.music.get(0).albumArt)
                     .placeholder(R.drawable.ic_album_art)
                     .into(albumArt);
+    }
+
+    // Gọi Dialog Option để thêm vào Playlist
+    @Override
+    public void option(Context context, Music music) {
+        SongOptionDialog dialog = new SongOptionDialog(context, music);
+        dialog.show();
     }
 }

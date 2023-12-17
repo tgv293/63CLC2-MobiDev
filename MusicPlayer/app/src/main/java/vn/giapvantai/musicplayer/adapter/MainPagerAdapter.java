@@ -5,14 +5,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import vn.giapvantai.musicplayer.fragments.AlbumsFragment;
 import vn.giapvantai.musicplayer.fragments.ArtistsFragment;
+import vn.giapvantai.musicplayer.fragments.PlaylistFragment;
 import vn.giapvantai.musicplayer.fragments.SettingsFragment;
 import vn.giapvantai.musicplayer.fragments.SongsFragment;
 import vn.giapvantai.musicplayer.listener.MusicSelectListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainPagerAdapter extends FragmentStateAdapter {
 
@@ -33,6 +34,7 @@ public class MainPagerAdapter extends FragmentStateAdapter {
         fragments.add(SongsFragment.newInstance(selectListener));
         fragments.add(ArtistsFragment.newInstance());
         fragments.add(AlbumsFragment.newInstance());
+        fragments.add(PlaylistFragment.newInstance());
         fragments.add(SettingsFragment.newInstance());
     }
 

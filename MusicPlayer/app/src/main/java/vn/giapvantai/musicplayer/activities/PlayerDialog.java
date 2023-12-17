@@ -8,25 +8,22 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
-
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Objects;
 
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.helper.MusicLibraryHelper;
 import vn.giapvantai.musicplayer.listener.PlayerDialogListener;
-import vn.giapvantai.musicplayer.listener.PlayerListener;
 import vn.giapvantai.musicplayer.model.Music;
+import vn.giapvantai.musicplayer.listener.PlayerListener;
 import vn.giapvantai.musicplayer.player.PlayerManager;
 import vn.giapvantai.musicplayer.player.PlayerQueue;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBarChangeListener, PlayerListener, View.OnClickListener {
 
@@ -82,8 +79,6 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
         // Thiết lập giao diện và lắng nghe sự kiện
         setUpUi();
         setUpListeners();
-        Objects.requireNonNull(songName).setSelected(true);
-        Objects.requireNonNull(songAlbum).setSelected(true);
 
         // Xử lý sự kiện khi hủy hoặc đóng dialog
         this.setOnCancelListener(dialogInterface -> detachListener());
@@ -96,7 +91,7 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
     }
 
     // Thiết lập giao diện người dùng
-    public void setUpUi() {
+    private void setUpUi() {
         Music music = playerManager.getCurrentMusic();
 
         // Hiển thị thông tin bài hát và nghệ sĩ
@@ -260,7 +255,6 @@ public class PlayerDialog extends BottomSheetDialog implements SeekBar.OnSeekBar
     public void onPrepared() {
         // Không sử dụng
     }
-
 
     // Lắng nghe sự kiện khi trình phát nhạc được giải phóng
     @Override

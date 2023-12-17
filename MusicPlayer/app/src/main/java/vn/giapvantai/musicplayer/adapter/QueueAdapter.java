@@ -11,14 +11,14 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Collections;
-import java.util.List;
-
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.activities.queue.QueueItemCallback;
 import vn.giapvantai.musicplayer.helper.ThemeHelper;
 import vn.giapvantai.musicplayer.model.Music;
 import vn.giapvantai.musicplayer.player.PlayerQueue;
+
+import java.util.Collections;
+import java.util.List;
 
 public class QueueAdapter extends RecyclerView.Adapter<QueueAdapter.MyViewHolder> implements QueueItemCallback.QueueItemInterface {
 

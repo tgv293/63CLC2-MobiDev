@@ -1,6 +1,7 @@
 package vn.giapvantai.musicplayer.fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,20 +13,21 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import vn.giapvantai.musicplayer.R;
+import vn.giapvantai.musicplayer.adapter.SongsAdapter;
+import vn.giapvantai.musicplayer.dialogs.SongOptionDialog;
+import vn.giapvantai.musicplayer.helper.ListHelper;
+import vn.giapvantai.musicplayer.listener.MusicSelectListener;
+import vn.giapvantai.musicplayer.listener.PlayListListener;
+import vn.giapvantai.musicplayer.model.Music;
+import vn.giapvantai.musicplayer.viewmodel.MainViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.giapvantai.musicplayer.R;
-import vn.giapvantai.musicplayer.adapter.SongsAdapter;
-import vn.giapvantai.musicplayer.helper.ListHelper;
-import vn.giapvantai.musicplayer.listener.MusicSelectListener;
-import vn.giapvantai.musicplayer.model.Music;
-import vn.giapvantai.musicplayer.viewmodel.MainViewModel;
-
-public class SongsFragment extends Fragment implements SearchView.OnQueryTextListener {
+public class SongsFragment extends Fragment implements SearchView.OnQueryTextListener, PlayListListener {
 
     private static MusicSelectListener listener;
     private final List<Music> musicList = new ArrayList<>();
@@ -64,7 +66,7 @@ public class SongsFragment extends Fragment implements SearchView.OnQueryTextLis
 
         RecyclerView recyclerView = view.findViewById(R.id.songs_layout);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        songsAdapter = new SongsAdapter(listener, musicList);
+        songsAdapter = new SongsAdapter(listener, this,musicList);
         recyclerView.setAdapter(songsAdapter);
 
         // Thiết lập sự kiện click cho nút shuffle
@@ -156,5 +158,11 @@ public class SongsFragment extends Fragment implements SearchView.OnQueryTextLis
         musicList.addAll(list);
         songsAdapter.notifyDataSetChanged();
         shuffleControl.setText(String.valueOf(musicList.size()));
+    }
+
+    @Override
+    public void option(Context context, Music music) {
+        SongOptionDialog dialog = new SongOptionDialog(context, music);
+        dialog.show();
     }
 }

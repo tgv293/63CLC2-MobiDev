@@ -1,14 +1,14 @@
 package vn.giapvantai.musicplayer.helper;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import vn.giapvantai.musicplayer.MPConstants;
 import vn.giapvantai.musicplayer.model.Album;
 import vn.giapvantai.musicplayer.model.Artist;
 import vn.giapvantai.musicplayer.model.Music;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Lớp trợ giúp thực hiện các thao tác trên danh sách âm nhạc, nghệ sĩ và album.

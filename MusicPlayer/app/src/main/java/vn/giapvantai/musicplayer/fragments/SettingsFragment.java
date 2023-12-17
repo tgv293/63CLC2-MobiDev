@@ -16,12 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.switchmaterial.SwitchMaterial;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import vn.giapvantai.musicplayer.MPConstants;
 import vn.giapvantai.musicplayer.MPPreferences;
 import vn.giapvantai.musicplayer.R;
@@ -30,6 +24,11 @@ import vn.giapvantai.musicplayer.adapter.AccentAdapter;
 import vn.giapvantai.musicplayer.helper.ThemeHelper;
 import vn.giapvantai.musicplayer.model.Folder;
 import vn.giapvantai.musicplayer.viewmodel.MainViewModel;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SettingsFragment extends Fragment implements View.OnClickListener {
 

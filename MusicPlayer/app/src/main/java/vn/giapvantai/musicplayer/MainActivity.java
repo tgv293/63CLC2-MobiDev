@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         albumState = MPPreferences.getAlbumRequest(this);
+        MPConstants.musicSelectListener = this;
 
         MaterialCardView playerLayout = findViewById(R.id.player_layout);
         albumArt = findViewById(R.id.albumArt);
@@ -140,9 +141,9 @@ public class MainActivity extends AppCompatActivity
         // Kiểm tra cần hiển thị dialog không
         if (PermissionHelper.requirePermissionRationale(context)) {
             new MaterialAlertDialogBuilder(context)
-                    .setTitle("Yêu cầu quyền")
-                    .setMessage("Bật quyền lưu trữ để truy cập các tệp phương tiện.")
-                    .setPositiveButton("Chấp nhận", (dialog, which) -> PermissionHelper.requestStoragePermission(context)).show();
+                    .setTitle("Requesting permission")
+                    .setMessage("Enable storage permission for accessing the media files.")
+                    .setPositiveButton("Accept", (dialog, which) -> PermissionHelper.requestStoragePermission(context)).show();
         } else {
             PermissionHelper.requestStoragePermission(context);
         }
@@ -272,22 +273,7 @@ public class MainActivity extends AppCompatActivity
     private void setUpPlayerDialog() {
         // Hiển thị dialog người nghe
         playerDialog = new PlayerDialog(this, playerManager, this);
-        playerDialog.setOnDismissListener(dialogInterface -> {
-            // Cập nhật giao diện khi PlayerDialog bị đóng
-            updatePlayerDialogUI();
-        });
-        playerDialog.setOnCancelListener(dialogInterface -> {
-            // Cập nhật giao diện khi PlayerDialog bị hủy
-            updatePlayerDialogUI();
-        });
         playerDialog.show();
-    }
-
-    // Phương thức cập nhật giao diện khi PlayerDialog được hiển thị lại
-    private void updatePlayerDialogUI() {
-        if (playerDialog != null && playerDialog.isShowing()) {
-            playerDialog.setUpUi(); // Gọi phương thức setUpUi để cập nhật các thành phần giao diện
-        }
     }
 
     @Override

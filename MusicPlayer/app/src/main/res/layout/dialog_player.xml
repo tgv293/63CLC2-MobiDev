@@ -136,13 +136,7 @@
             android:textAlignment="center"
             android:textColor="@color/colorTextHigh"
             android:textSize="@dimen/text_big"
-            android:textStyle="bold"
-            android:singleLine="true"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:focusable="true"
-            android:focusableInTouchMode="true"/>
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/song_album"
@@ -152,13 +146,7 @@
             android:maxLines="1"
             android:textAlignment="center"
             android:textColor="@color/colorTextMed"
-            android:textSize="@dimen/text_big_med"
-            android:singleLine="true"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:focusable="true"
-            android:focusableInTouchMode="true"/>
+            android:textSize="@dimen/text_big_med" />
 
     </LinearLayout>
 

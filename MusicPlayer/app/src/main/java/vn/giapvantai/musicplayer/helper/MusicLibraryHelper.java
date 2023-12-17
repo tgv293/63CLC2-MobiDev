@@ -12,6 +12,10 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 
+import vn.giapvantai.musicplayer.MPConstants;
+import vn.giapvantai.musicplayer.R;
+import vn.giapvantai.musicplayer.model.Music;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
@@ -22,10 +26,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
-
-import vn.giapvantai.musicplayer.MPConstants;
-import vn.giapvantai.musicplayer.R;
-import vn.giapvantai.musicplayer.model.Music;
 
 public class MusicLibraryHelper {
 

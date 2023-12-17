@@ -22,6 +22,7 @@ public class PlayerService extends Service {
     private PlayerNotificationManager notificationManager;
     private MediaSessionCompat mediaSessionCompat;
 
+    // Callback cho MediaSessionCompat để xử lý sự kiện từ bảng điều khiển truyền thông
     private final MediaSessionCompat.Callback mediaSessionCallback = new MediaSessionCompat.Callback() {
         @Override
         public void onPlay() {
@@ -41,11 +42,6 @@ public class PlayerService extends Service {
         @Override
         public void onSkipToPrevious() {
             playerManager.playPrev();
-        }
-
-        @Override
-        public void onFastForward() {
-            super.onFastForward();
         }
 
         @Override
@@ -71,17 +67,21 @@ public class PlayerService extends Service {
 
     private PowerManager.WakeLock wakeLock;
 
+    // Constructor mặc định
     public PlayerService() {
     }
 
+    // Getter cho PlayerManager
     public PlayerManager getPlayerManager() {
         return playerManager;
     }
 
+    // Getter cho PlayerNotificationManager
     public PlayerNotificationManager getNotificationManager() {
         return notificationManager;
     }
 
+    // Phương thức onStartCommand, được gọi khi Service được khởi động
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (playerManager != null && playerManager.isPlaying())
@@ -90,6 +90,7 @@ public class PlayerService extends Service {
         return START_NOT_STICKY;
     }
 
+    // Cấu hình MediaSessionCompat để xử lý sự kiện truyền thông
     private void configureMediaSession() {
         Intent mediaButtonIntent = new Intent(Intent.ACTION_MEDIA_BUTTON);
         ComponentName mediaButtonReceiverComponentName = new ComponentName(this, PlayerManager.NotificationReceiver.class);
@@ -101,6 +102,7 @@ public class PlayerService extends Service {
         mediaSessionCompat.setMediaButtonReceiver(mediaButtonReceiverPendingIntent);
     }
 
+    // Xử lý sự kiện từ bảng điều khiển truyền thông
     private boolean handleMediaButtonEvent(Intent mediaButtonEvent) {
         boolean isSuccess = false;
         if (mediaButtonEvent == null) {
@@ -145,6 +147,7 @@ public class PlayerService extends Service {
         return isSuccess;
     }
 
+    // Phương thức onBind, được gọi khi một thành phần khác muốn kết nối với Service
     @Override
     public IBinder onBind(Intent intent) {
         if (playerManager == null) {
@@ -156,6 +159,7 @@ public class PlayerService extends Service {
         return iBinder;
     }
 
+    // Phương thức onCreate, được gọi khi Service được tạo
     @Override
     public void onCreate() {
         super.onCreate();
@@ -168,6 +172,7 @@ public class PlayerService extends Service {
         configureMediaSession();
     }
 
+    // Phương thức onDestroy, được gọi khi Service bị hủy
     @Override
     public void onDestroy() {
         if (playerManager != null) {
@@ -180,10 +185,12 @@ public class PlayerService extends Service {
         super.onDestroy();
     }
 
+    // Getter cho MediaSessionCompat
     public MediaSessionCompat getMediaSessionCompat() {
         return mediaSessionCompat;
     }
 
+    // Lớp LocalBinder để cung cấp đối tượng Binder cục bộ
     class LocalBinder extends Binder {
         public PlayerService getInstance() {
             return PlayerService.this;

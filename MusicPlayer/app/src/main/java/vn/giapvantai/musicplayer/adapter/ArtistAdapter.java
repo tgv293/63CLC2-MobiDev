@@ -1,5 +1,6 @@
 package vn.giapvantai.musicplayer.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,12 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
-import java.util.Locale;
-
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.listener.ArtistSelectListener;
 import vn.giapvantai.musicplayer.model.Artist;
+
+import java.util.List;
+import java.util.Locale;
 
 public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.MyViewHolder> {
 
@@ -33,6 +34,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.MyViewHold
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         // Thiết lập dữ liệu cho các thành phần giao diện của mỗi item

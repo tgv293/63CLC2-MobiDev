@@ -12,11 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.appbar.MaterialToolbar;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.activities.SelectedAlbumActivity;
 import vn.giapvantai.musicplayer.adapter.AlbumsAdapter;
@@ -24,6 +19,10 @@ import vn.giapvantai.musicplayer.helper.ListHelper;
 import vn.giapvantai.musicplayer.listener.AlbumSelectListener;
 import vn.giapvantai.musicplayer.model.Album;
 import vn.giapvantai.musicplayer.viewmodel.MainViewModel;
+import com.google.android.material.appbar.MaterialToolbar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AlbumsFragment extends Fragment implements AlbumSelectListener, SearchView.OnQueryTextListener {
 

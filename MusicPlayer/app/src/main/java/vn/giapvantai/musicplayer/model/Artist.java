@@ -3,9 +3,9 @@ package vn.giapvantai.musicplayer.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.List;
-
 import vn.giapvantai.musicplayer.helper.ListHelper;
+
+import java.util.List;
 
 /**
  * Đối tượng Artist chứa thông tin về nghệ sĩ, bao gồm tên, danh sách album, số bài hát và số album.

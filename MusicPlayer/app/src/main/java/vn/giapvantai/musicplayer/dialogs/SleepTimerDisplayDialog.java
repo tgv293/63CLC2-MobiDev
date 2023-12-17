@@ -6,13 +6,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 
+import vn.giapvantai.musicplayer.R;
+import vn.giapvantai.musicplayer.listener.SleepTimerSetListener;
+
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.Locale;
-
-import vn.giapvantai.musicplayer.R;
-import vn.giapvantai.musicplayer.listener.SleepTimerSetListener;
 
 public class SleepTimerDisplayDialog extends BottomSheetDialog {
 

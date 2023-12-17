@@ -2,10 +2,10 @@ package vn.giapvantai.musicplayer.listener;
 
 import androidx.annotation.IntDef;
 
+import vn.giapvantai.musicplayer.model.Music;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
-import vn.giapvantai.musicplayer.model.Music;
 
 public interface PlayerListener {
 
@@ -21,12 +21,11 @@ public interface PlayerListener {
 
     void onRelease();
 
-
-    @IntDef({State.INVALID,
-            State.PLAYING,
-            State.PAUSED,
-            State.COMPLETED,
-            State.RESUMED})
+    @IntDef({PlayerListener.State.INVALID,
+            PlayerListener.State.PLAYING,
+            PlayerListener.State.PAUSED,
+            PlayerListener.State.COMPLETED,
+            PlayerListener.State.RESUMED})
     @Retention(RetentionPolicy.SOURCE)
     @interface State {
         int INVALID = -1;

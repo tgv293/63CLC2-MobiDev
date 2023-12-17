@@ -10,19 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-
-import java.util.List;
-
 import vn.giapvantai.musicplayer.App;
 import vn.giapvantai.musicplayer.MPPreferences;
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.model.Folder;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
+import java.util.List;
 
 public class FolderDialog extends BottomSheetDialog {
 
     private final List<String> exclusionFolders;
-    private RecyclerView recyclerView; // Move recyclerView to class-level
+    private RecyclerView recyclerView;
 
     public FolderDialog(@NonNull Context context, List<Folder> folderList) {
         super(context);

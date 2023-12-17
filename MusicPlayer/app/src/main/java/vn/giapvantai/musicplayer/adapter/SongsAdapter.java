@@ -9,26 +9,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import vn.giapvantai.musicplayer.MPPreferences;
+import vn.giapvantai.musicplayer.R;
+import vn.giapvantai.musicplayer.helper.MusicLibraryHelper;
+import vn.giapvantai.musicplayer.listener.MusicSelectListener;
+import vn.giapvantai.musicplayer.listener.PlayListListener;
+import vn.giapvantai.musicplayer.model.Music;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 import java.util.Locale;
 
-import vn.giapvantai.musicplayer.MPPreferences;
-import vn.giapvantai.musicplayer.R;
-import vn.giapvantai.musicplayer.helper.MusicLibraryHelper;
-import vn.giapvantai.musicplayer.listener.MusicSelectListener;
-import vn.giapvantai.musicplayer.model.Music;
-
 public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.MyViewHolder> {
 
     public final MusicSelectListener listener;
     private final List<Music> musicList;
+    private final PlayListListener playListListener;
 
     // Constructor để khởi tạo adapter với danh sách nhạc và listener
-    public SongsAdapter(MusicSelectListener listener, List<Music> musics) {
+    public SongsAdapter(MusicSelectListener listener, PlayListListener playListListener, List<Music> musics) {
         this.listener = listener;
         this.musicList = musics;
+        this.playListListener = playListListener;
     }
 
     // Tạo ViewHolder mới (được gọi bởi LayoutManager)
@@ -105,6 +107,11 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.MyViewHolder
             itemView.findViewById(R.id.root_layout).setOnClickListener(v -> {
                 List<Music> toPlay = musicList.subList(getAdapterPosition(), musicList.size());
                 listener.playQueue(toPlay, false);
+            });
+
+            itemView.findViewById(R.id.root_layout).setOnLongClickListener(v -> {
+                playListListener.option(itemView.getContext(), musicList.get(getAdapterPosition()));
+                return true;
             });
         }
     }

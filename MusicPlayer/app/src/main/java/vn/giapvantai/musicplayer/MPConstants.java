@@ -1,9 +1,9 @@
 package vn.giapvantai.musicplayer;
 
+import vn.giapvantai.musicplayer.listener.MusicSelectListener;
+
 import java.util.Arrays;
 import java.util.List;
-
-import vn.giapvantai.musicplayer.listener.MusicSelectListener;
 
 public class MPConstants {
     public static final String PACKAGE_NAME = "vn.giapvantai.musicplayer";
@@ -32,6 +32,7 @@ public class MPConstants {
             R.drawable.ic_music_note,
             R.drawable.ic_artist,
             R.drawable.ic_library_music,
+            R.drawable.ic_playlist,
             R.drawable.ic_settings,
     };
     public static final String SETTINGS_THEME = "shared_pref_theme";
@@ -94,6 +95,9 @@ public class MPConstants {
     public static final int SORT_ALBUM_BY_TITLE = 0;
     public static final int SORT_ALBUM_BY_DURATION = 1;
     public static final int SORT_ALBUM_BY_SONGS = 2;
+    public static final int DATABASE_VERSION = 1;
+    public static final String MUSIC_TABLE = "music";
+    public static final String DATABASE_NAME = "playlist";
     public static final String PLAY_STORE_LINK = "https://play.google.com/";
     public static MusicSelectListener musicSelectListener;
 }

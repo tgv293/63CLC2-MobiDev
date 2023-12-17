@@ -1,5 +1,6 @@
 package vn.giapvantai.musicplayer.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -8,26 +9,28 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import vn.giapvantai.musicplayer.MPConstants;
+import vn.giapvantai.musicplayer.MPPreferences;
+import vn.giapvantai.musicplayer.R;
+import vn.giapvantai.musicplayer.adapter.HorizontalAlbumsAdapter;
+import vn.giapvantai.musicplayer.adapter.SongsAdapter;
+import vn.giapvantai.musicplayer.dialogs.SongOptionDialog;
+import vn.giapvantai.musicplayer.helper.ThemeHelper;
+import vn.giapvantai.musicplayer.listener.AlbumSelectListener;
+import vn.giapvantai.musicplayer.listener.MusicSelectListener;
+import vn.giapvantai.musicplayer.listener.PlayListListener;
+import vn.giapvantai.musicplayer.model.Album;
+import vn.giapvantai.musicplayer.model.Artist;
+import vn.giapvantai.musicplayer.model.Music;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
-import vn.giapvantai.musicplayer.MPConstants;
-import vn.giapvantai.musicplayer.MPPreferences;
-import vn.giapvantai.musicplayer.R;
-import vn.giapvantai.musicplayer.adapter.HorizontalAlbumsAdapter;
-import vn.giapvantai.musicplayer.adapter.SongsAdapter;
-import vn.giapvantai.musicplayer.helper.ThemeHelper;
-import vn.giapvantai.musicplayer.listener.AlbumSelectListener;
-import vn.giapvantai.musicplayer.listener.MusicSelectListener;
-import vn.giapvantai.musicplayer.model.Album;
-import vn.giapvantai.musicplayer.model.Artist;
-import vn.giapvantai.musicplayer.model.Music;
-
-public class SelectedArtistActivity extends AppCompatActivity implements AlbumSelectListener {
+public class SelectedArtistActivity extends AppCompatActivity implements AlbumSelectListener, PlayListListener {
 
     private final MusicSelectListener musicSelectListener = MPConstants.musicSelectListener;
     private final List<Music> musicList = new ArrayList<>();
@@ -55,7 +58,7 @@ public class SelectedArtistActivity extends AppCompatActivity implements AlbumSe
         albumSongsCount = findViewById(R.id.album_song_count);
         toolbar = findViewById(R.id.search_toolbar);
         // Thiết lập tiêu đề thanh công cụ là tên nghệ sĩ và số lượng album, số lượng bài hát
-        toolbar.setTitle(artist.name);
+        toolbar.setTitle(Objects.requireNonNull(artist).name);
         toolbar.setSubtitle(String.format(Locale.getDefault(), "%d albums • %d songs",
                 artist.albumCount, artist.songCount));
 
@@ -68,7 +71,7 @@ public class SelectedArtistActivity extends AppCompatActivity implements AlbumSe
         // Thiết lập RecyclerView để hiển thị danh sách các bài hát trong album mặc định
         songsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         musicList.addAll(defAlbum.music);
-        songsAdapter = new SongsAdapter(musicSelectListener,  musicList);
+        songsAdapter = new SongsAdapter(musicSelectListener,  this,musicList);
         songsRecyclerView.setAdapter(songsAdapter);
 
         // Thiết lập RecyclerView để hiển thị danh sách album theo chiều ngang
@@ -84,8 +87,6 @@ public class SelectedArtistActivity extends AppCompatActivity implements AlbumSe
 
         // Thiết lập các tùy chọn trên thanh công cụ
         setUpOptions();
-
-        albumTitle.setSelected(true);
     }
 
     // Thiết lập các tùy chọn trên thanh công cụ
@@ -119,5 +120,12 @@ public class SelectedArtistActivity extends AppCompatActivity implements AlbumSe
         albumTitle.setText(album.title);
         albumSongsCount.setText(String.format(Locale.getDefault(), "%d Songs",
                 album.music.size()));
+    }
+
+    // Gọi Dialog Option để thêm vào Playlist
+    @Override
+    public void option(Context context, Music music) {
+        SongOptionDialog dialog = new SongOptionDialog(context, music);
+        dialog.show();
     }
 }

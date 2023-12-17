@@ -1,11 +1,6 @@
 package vn.giapvantai.musicplayer.player;
 
-import static vn.giapvantai.musicplayer.MPConstants.CHANNEL_ID;
-import static vn.giapvantai.musicplayer.MPConstants.NEXT_ACTION;
-import static vn.giapvantai.musicplayer.MPConstants.NOTIFICATION_ID;
-import static vn.giapvantai.musicplayer.MPConstants.PLAY_PAUSE_ACTION;
-import static vn.giapvantai.musicplayer.MPConstants.PREV_ACTION;
-import static vn.giapvantai.musicplayer.MPConstants.REQUEST_CODE;
+import static vn.giapvantai.musicplayer.MPConstants.*;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

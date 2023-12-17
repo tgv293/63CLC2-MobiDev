@@ -7,16 +7,15 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import vn.giapvantai.musicplayer.R;
 import vn.giapvantai.musicplayer.activities.queue.QueueItemCallback;
 import vn.giapvantai.musicplayer.adapter.QueueAdapter;
 import vn.giapvantai.musicplayer.model.Music;
 import vn.giapvantai.musicplayer.player.PlayerQueue;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class QueueDialog extends BottomSheetDialog {
 
